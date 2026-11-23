@@ -1,0 +1,66 @@
+BRAND CONTEXT (AI-READY) — AURA GRANOLA (Marca Fictícia Demonstrativa)
+
+Aviso: Esta é uma marca fictícia criada exclusivamente para demonstrar o funcionamento do produto Food Brand Kit AI-Ready a potenciais clientes durante a fase de validação.
+
+============================================================
+1. IDENTIDADE ESTRATÉGICA DA MARCA
+============================================================
+- Nome da Marca: Aura Granola (Alimentos Artesanais Ltda. — Fictícia)
+- Categoria: Alimentos embalados artesanais e saudáveis (CPG — Granolas e Snacks Crocantes).
+- Propósito: Tornar o café da manhã e os lanches práticos mais saborosos e transparentes, usando ingredientes reais brasileiros sem promessas exageradas.
+- Público Principal: Pessoas de 25 a 45 anos em centros urbanos que compram em empórios naturais, mercados de bairro ou e-commerce e valorizam rótulos limpos (clean label), crocância e procedência.
+- Diferenciais Comerciais:
+  * Assada em pequenos lotes em forno baixo para manter castanhas crocantes.
+  * Ingredientes reconhecíveis na despensa de casa.
+  * Rótulos claros com destaque honesto de alergênicos e porções.
+
+============================================================
+2. IDENTIDADE VISUAL (GUIA DE CONSULTA RÁPIDA)
+============================================================
+- Paleta de Cores Oficial:
+  * Terracota Cacau (Primária): HEX #9C4A2D | RGB 156, 74, 45 | CMYK 25, 76, 84, 20
+  * Aveia Quente (Fundo Editorial): HEX #F7F1E5 | RGB 247, 241, 229 | CMYK 3, 4, 10, 0
+  * Verde Folha Seca (Acento Natural): HEX #3F5E45 | RGB 63, 94, 69 | CMYK 74, 40, 74, 30
+  * Café Torrado (Texto Principal): HEX #2B211B | RGB 43, 33, 27 | CMYK 60, 68, 74, 75
+  * Mel Dourado (Destaque Secundário): HEX #D99B26 | RGB 217, 155, 38 | CMYK 13, 42, 95, 1
+- Tipografia:
+  * Títulos: Serifada editorial acolhedora (ex.: Fraunces ou Playfair Display — peso SemiBold).
+  * Corpo e Rótulos Técnicos: Sans-serif limpa de alta legibilidade em tamanhos pequenos (ex.: Plus Jakarta Sans ou Inter — pesos Regular e Medium).
+- Estilo Fotográfico & Direção de Arte:
+  * Luz natural lateral de manhã, texturas orgânicas (cerâmica fosca, linho cru, madeira clara), foco na crocância real dos grãos e castanhas.
+  * Proibido na estética: Imagens artificiais com brilho plástico de IA, frutas flutuando em fundos neon, ou excesso de selos e frases competindo com a área frontal da embalagem.
+
+============================================================
+3. IDENTIDADE VERBAL E TOM DE VOZ
+============================================================
+- Personalidade da Voz: Acolhedora, prática, transparente e pé no chão (como quem explica uma receita boa na cozinha de casa, com clareza profissional).
+- 3 Regras de Ouro:
+  1. Fale de sabor, textura, ingredientes reais e momentos de consumo antes de qualquer dado técnico.
+  2. Seja precisa e honesta: nunca transforme um ingrediente comum em "superalimento milagroso".
+  3. Frases curtas, diretas, sem jargões vazios ("revolucionário", "detox", "biohacking").
+- Vocabulário Aprovado: assada lentamente, crocante, feita em pequenos lotes, receita transparente, castanhas inteiras, aveia tostada, café da manhã sem pressa, empório.
+- Vocabulário Proibido (Risco de Marca ou Regulatório): emagrecedor, anti-inflamatório, cura, previne doenças, desintoxica, milagroso, zero risco, substitui refeição, 100% livre de alergênicos (sem laudo).
+
+============================================================
+4. FICHAS TÉCNICAS OFICIAIS SIMULADAS (FONTE ÚNICA DA VERDADE)
+============================================================
+
+Produto 01 — Granola Tradicional Mel & Castanha-do-Pará (250g)
+- Ingredientes: Aveia em flocos, mel silvestre, castanha-do-pará, semente de abóbora, óleo de coco, canela em pó e sal marinho.
+- Lupa Frontal (Simulação): Não se aplica lupa "ALTO EM" neste exemplo fictício (verificar sempre cálculo oficial de laboratório/nutricionista).
+- Alergênicos Obrigatórios (Simulação): ALÉRGICOS: CONTÉM AVEIA E CASTANHA-DO-PARÁ. PODE CONTER TRIGO, CENTEIO, CEVADA, AMENDOIM E OUTRAS CASTANHAS. CONTÉM GLÚTEN. (Exemplo ilustrativo de compartilhamento de maquinário).
+- Alegações Pré-Aprovadas pelo Cliente: "Assada com mel silvestre e castanha-do-pará inteira."
+- Alegações Proibidas neste produto: "Sem açúcar" (contém mel!), "Sem glúten" (contém aveia em ambiente compartilhado).
+
+Produto 02 — Granola Cacau 70% & Coco Crocante Sem Adição de Açúcares (250g)
+- Ingredientes: Aveia sem glúten certificada, lascas de coco desidratado, nibs de cacau, cacau em pó alcalino, pasta de tâmaras, óleo de coco, semente de girassol e sal marinho.
+- Alergênicos Obrigatórios (Simulação): ALÉRGICOS: CONTÉM AVEIA. PODE CONTER CASTANHA-DE-CAJU, CASTANHA-DO-PARÁ E AMÊNDOA. NÃO CONTÉM GLÚTEN. (Condicionado a laudo e certificação de processo no cenário fictício).
+- Alegações Pré-Aprovadas pelo Cliente: "Adoçada apenas com pasta de tâmaras" / "Com nibs de cacau e lascas de coco." (Uso de "Sem adição de açúcares" ou "Fonte de fibras" deve respeitar integralmente os critérios quantitativos da IN 75/2020 confirmados pelo responsável técnico).
+
+============================================================
+5. PROMPTS PRONTOS AI-READY (EXEMPLOS)
+============================================================
+1. Legenda de Instagram (Segura):
+   "Atuando como redatora da Aura Granola (use o Brand Context acima), escreva 3 opções de legenda curta para um post mostrando o Produto 01 servido com iogurte natural e banana. Foque em textura crocante e rotina de café da manhã. Ao final, lembre-se de conferir se algum alergênico precisa ser mencionado caso falemos de ingredientes."
+2. Descrição de E-commerce:
+   "Com base exclusiva na ficha técnica do Produto 02, crie uma descrição clara para página de produto com: (1) abertura sensorial de 2 linhas, (2) 3 sugestões de consumo, (3) lista exata de ingredientes e alerta de alergênicos copiados da ficha, sem inventar benefícios à saúde."

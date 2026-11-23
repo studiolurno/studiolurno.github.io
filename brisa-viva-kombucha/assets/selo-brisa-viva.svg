@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 220" width="220" height="220" role="img" aria-label="Selo Circular Brisa Viva — Fermentação Viva 100% Botânico">
+  <defs>
+    <linearGradient id="bvsLeaf" x1="15%" y1="95%" x2="85%" y2="5%">
+      <stop offset="0%" stop-color="#022C22"/>
+      <stop offset="50%" stop-color="#059669"/>
+      <stop offset="100%" stop-color="#65A30D"/>
+    </linearGradient>
+    <linearGradient id="bvsSoft" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#059669" stop-opacity="0.85"/>
+      <stop offset="100%" stop-color="#A7F3D0" stop-opacity="0.95"/>
+    </linearGradient>
+    <!-- Arco Superior amplo (lê esquerda -> direita por cima com folga) -->
+    <path id="sealTopArc" d="M 32,126 A 80,80 0 1,1 188,126"/>
+    <!-- Arco Inferior (lê esquerda -> direita por baixo) -->
+    <path id="sealBottomArc" d="M 27,120 A 84,84 0 0,0 193,120"/>
+    <style>
+      .bvs-ring-text { font-family: 'Plus Jakarta Sans', system-ui, sans-serif; font-weight: 700; font-size: 9.2px; fill: #022C22; letter-spacing: 0.11em; }
+      .bvs-ring-bot { font-family: 'Plus Jakarta Sans', system-ui, sans-serif; font-weight: 700; font-size: 9.2px; fill: #059669; letter-spacing: 0.2em; }
+      .bvs-brand { font-family: 'Fraunces', Georgia, serif; font-weight: 700; font-size: 15px; fill: #022C22; }
+      .bvs-brand-it { font-family: 'Fraunces', Georgia, serif; font-weight: 700; font-style: italic; font-size: 15px; fill: #059669; }
+    </style>
+  </defs>
+
+  <!-- Anéis translúcidos limpos -->
+  <circle cx="110" cy="110" r="104" fill="#F8FAFC" stroke="#059669" stroke-width="1.8" opacity="0.97"/>
+  <circle cx="110" cy="110" r="97" fill="none" stroke="#059669" stroke-width="0.85" stroke-dasharray="3 4" opacity="0.5"/>
+  <circle cx="110" cy="110" r="64" fill="#ECFDF5" stroke="#A7F3D0" stroke-width="1.2"/>
+
+  <!-- Texto Circular Superior & Inferior -->
+  <text class="bvs-ring-text">
+    <textPath href="#sealTopArc" startOffset="50%" text-anchor="middle">FERMENTAÇÃO VIVA • 100% BOTÂNICO</textPath>
+  </text>
+  <text class="bvs-ring-bot">
+    <textPath href="#sealBottomArc" startOffset="50%" text-anchor="middle">BRISA VIVA KOMBUCHA</textPath>
+  </text>
+
+  <!-- Pontos laterais de equilíbrio -->
+  <circle cx="32" cy="126" r="2.7" fill="#E11D48"/>
+  <circle cx="188" cy="126" r="2.7" fill="#F59E0B"/>
+
+  <!-- Símbolo Central + Assinatura -->
+  <g transform="translate(110, 96) scale(0.68)">
+    <path d="M -4,30 C -26,18 -40,-4 -30,-26 C -14,-24 0,-8 2,14 Z" fill="url(#bvsSoft)"/>
+    <path d="M -2,32 C -2,0 14,-28 40,-41 C 42,-12 28,18 2,32 Z" fill="url(#bvsLeaf)"/>
+    <path d="M 1,26 C 8,8 19,-11 32,-31" fill="none" stroke="#ECFDF5" stroke-width="2.2" stroke-linecap="round"/>
+    <path d="M -38,34 C -18,24 8,44 40,29" fill="none" stroke="#059669" stroke-width="3.2" stroke-linecap="round"/>
+    <circle cx="-11" cy="-35" r="4.8" fill="#E11D48"/>
+    <circle cx="4" cy="-46" r="3.8" fill="#F59E0B"/>
+    <circle cx="17" cy="-37" r="3.2" fill="#65A30D"/>
+  </g>
+  <text x="110" y="143" text-anchor="middle">
+    <tspan class="bvs-brand">Brisa </tspan><tspan class="bvs-brand-it">Viva</tspan>
+  </text>
+</svg>

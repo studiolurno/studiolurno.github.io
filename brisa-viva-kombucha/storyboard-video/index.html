@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Brisa Viva Kombucha • Storyboard de Produção I2V (Veo 2 / VideoFX)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,700;1,9..144,600&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-canvas: #F7F4EE;
+      --bg-surface: #FFFFFF;
+      --bg-subtle: #EDE7DC;
+      --color-ink: #231F1E;
+      --color-ink-muted: #5E5650;
+      --color-terracotta: #8C3B2B;
+      --color-cocoa: #6E4730;
+      --accent-herb: #6B7F3F;
+      --accent-citrus: #E08E26;
+      --accent-slate: #2B5B6C;
+      --border: 1px solid rgba(35, 31, 30, 0.1);
+      --shadow-sm: 0 4px 12px rgba(35, 31, 30, 0.04);
+      --radius-lg: 24px;
+      --radius-md: 16px;
+      --radius-sm: 10px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg-canvas);
+      color: var(--color-ink);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      line-height: 1.6;
+      padding: 40px 24px 80px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    /* Header */
+    header {
+      margin-bottom: 40px;
+      padding-bottom: 24px;
+      border-bottom: 1px solid rgba(35, 31, 30, 0.12);
+    }
+
+    .brand-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: 'Space Mono', monospace;
+      font-size: 0.78rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--color-terracotta);
+      background: #F2E4DE;
+      padding: 6px 14px;
+      border-radius: 999px;
+      margin-bottom: 16px;
+      font-weight: 700;
+    }
+
+    h1 {
+      font-family: 'Fraunces', serif;
+      font-size: clamp(2rem, 3.8vw, 3rem);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+      color: var(--color-ink);
+      margin-bottom: 12px;
+    }
+
+    h1 em {
+      font-style: italic;
+      color: var(--color-terracotta);
+    }
+
+    .subtitle {
+      color: var(--color-ink-muted);
+      font-size: 1.05rem;
+      max-width: 780px;
+    }
+
+    /* Quick Guide Banner */
+    .workflow-banner {
+      background: var(--bg-surface);
+      border: var(--border);
+      border-radius: var(--radius-lg);
+      padding: 24px 28px;
+      margin-bottom: 40px;
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .banner-title {
+      font-family: 'Fraunces', serif;
+      font-size: 1.25rem;
+      color: var(--color-cocoa);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
+    }
+
+    .step-card {
+      background: var(--bg-canvas);
+      padding: 16px;
+      border-radius: var(--radius-md);
+      border: 1px solid rgba(35, 31, 30, 0.06);
+    }
+
+    .step-number {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--accent-herb);
+      margin-bottom: 4px;
+    }
+
+    .step-text {
+      font-size: 0.9rem;
+      color: var(--color-ink);
+    }
+
+    .cta-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--color-ink);
+      color: #fff;
+      text-decoration: none;
+      padding: 10px 18px;
+      border-radius: 999px;
+      font-size: 0.88rem;
+      font-weight: 600;
+      width: fit-content;
+      margin-top: 8px;
+      transition: all 0.2s ease;
+    }
+
+    .cta-link:hover {
+      background: var(--color-terracotta);
+      transform: translateY(-1px);
+    }
+
+    /* Takes Grid */
+    .takes-list {
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+    }
+
+    .take-card {
+      background: var(--bg-surface);
+      border: var(--border);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-sm);
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: 320px 1fr;
+      transition: border-color 0.2s ease;
+    }
+
+    .take-card:hover {
+      border-color: rgba(140, 59, 43, 0.35);
+    }
+
+    @media (max-width: 900px) {
+      .take-card {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Media Preview Column */
+    .media-col {
+      background: #F4EFE6;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      border-right: 1px solid rgba(35, 31, 30, 0.08);
+      position: relative;
+    }
+
+    .media-thumb {
+      max-width: 100%;
+      max-height: 280px;
+      object-fit: contain;
+      border-radius: var(--radius-sm);
+      filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.08));
+    }
+
+    .open-btn {
+      margin-top: 14px;
+      font-family: 'Space Mono', monospace;
+      font-size: 0.75rem;
+      background: rgba(35, 31, 30, 0.08);
+      color: var(--color-ink);
+      text-decoration: none;
+      padding: 6px 12px;
+      border-radius: 6px;
+      font-weight: 700;
+      transition: background 0.2s ease;
+    }
+
+    .open-btn:hover {
+      background: var(--color-ink);
+      color: #fff;
+    }
+
+    /* Content Column */
+    .content-col {
+      padding: 28px 32px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .take-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .take-tag {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--color-terracotta);
+      letter-spacing: 0.05em;
+    }
+
+    .take-duration {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.75rem;
+      color: var(--color-ink-muted);
+      background: var(--bg-subtle);
+      padding: 3px 8px;
+      border-radius: 4px;
+    }
+
+    .take-title {
+      font-family: 'Fraunces', serif;
+      font-size: 1.45rem;
+      font-weight: 700;
+      color: var(--color-ink);
+    }
+
+    .take-desc {
+      font-size: 0.94rem;
+      color: var(--color-ink-muted);
+    }
+
+    /* Prompt Box */
+    .prompt-box {
+      background: #1F1C1B;
+      color: #F7F4EE;
+      border-radius: var(--radius-md);
+      padding: 16px 20px;
+      position: relative;
+    }
+
+    .prompt-label {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.7rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #D9A07E;
+      margin-bottom: 8px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .prompt-text {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.84rem;
+      line-height: 1.5;
+      color: #F7F4EE;
+      user-select: all;
+    }
+
+    .copy-btn {
+      background: rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: #fff;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.76rem;
+      font-weight: 600;
+      padding: 4px 10px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .copy-btn:hover {
+      background: var(--color-terracotta);
+      border-color: var(--color-terracotta);
+    }
+
+    .copy-btn.copied {
+      background: var(--accent-herb);
+      border-color: var(--accent-herb);
+    }
+
+    .sound-note {
+      font-size: 0.82rem;
+      color: var(--color-cocoa);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-weight: 500;
+    }
+
+    /* Footer */
+    footer {
+      margin-top: 60px;
+      text-align: center;
+      color: var(--color-ink-muted);
+      font-size: 0.88rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="brand-tag">Brisa Viva Kombucha • Direção de Arte de Vídeo</div>
+      <h1>Roteiro de Produção <em>Image-to-Video</em></h1>
+      <p class="subtitle">
+        Guia prático de 5 takes modulares para geração com consistência de produto no <strong>Google VideoFX / Veo 2</strong> ou <strong>Gemini Advanced</strong>, aproveitando a sua Conta Google Pro.
+      </p>
+    </header>
+
+    <!-- Workflow Banner -->
+    <div class="workflow-banner">
+      <div class="banner-title">
+        <span>⚡</span> Como Rodar os Takes no Google Flow (Nova Interface do VideoFX)
+      </div>
+      <div class="steps-grid">
+        <div class="step-card">
+          <div class="step-number">PASSO 01 • ATIVAR FRAMES</div>
+          <div class="step-text">Na barra de prompt do <strong>Google Flow</strong>, clique no botão/ícone <strong>"Frames"</strong> (ou no <strong>"+"</strong> ao lado do campo de texto).</div>
+        </div>
+        <div class="step-card">
+          <div class="step-number">PASSO 02 • START FRAME</div>
+          <div class="step-text">Clique no quadrado <strong>"Start frame"</strong> e faça o upload da imagem do Take correspondente (ou arraste para dentro).</div>
+        </div>
+        <div class="step-card">
+          <div class="step-number">PASSO 03 • COLAR PROMPT</div>
+          <div class="step-text">Clique em <strong>Copiar Prompt</strong> no card abaixo e cole no campo de texto descrevendo o movimento.</div>
+        </div>
+        <div class="step-card">
+          <div class="step-number">PASSO 04 • BAIXAR CLIPE</div>
+          <div class="step-text">Clique em <strong>Generate</strong>, baixe o vídeo (.mp4) e salve na pasta <code>storyboard-video/clips/</code>.</div>
+        </div>
+      </div>
+      <div style="display: flex; gap: 12px; flex-wrap: wrap; margin-top: 8px;">
+        <a href="https://flow.google" target="_blank" class="cta-link">
+          Abrir Google Flow (flow.google) ↗
+        </a>
+        <a href="https://labs.google/fx/tools/videofx" target="_blank" class="cta-link" style="background: var(--bg-subtle); color: var(--color-ink);">
+          Acessar via Labs VideoFX ↗
+        </a>
+      </div>
+    </div>
+
+    <!-- Takes List -->
+    <div class="takes-list">
+
+      <!-- Take 1 -->
+      <article class="take-card">
+        <div class="media-col">
+          <img src="assets/take1_garrafa_hero.png" alt="Garrafa Brisa Viva Hibisco" class="media-thumb">
+          <a href="assets/take1_garrafa_hero.png" target="_blank" class="open-btn">Abrir Imagem ↗</a>
+        </div>
+        <div class="content-col">
+          <div class="take-header">
+            <span class="take-tag">TAKE 01 • HERO & CONDENSAÇÃO</span>
+            <span class="take-duration">3.0 Segundos</span>
+          </div>
+          <h2 class="take-title">A Garrafa Gelada Respirando Frescor</h2>
+          <p class="take-desc">
+            A câmera faz um movimento orbital suave e lento ao redor da garrafa escura. Gotículas de condensação escorrem lentamente pelo vidro, destacando o rótulo nítido de Hibisco & Cranberry com luz quente de estúdio.
+          </p>
+          <div class="prompt-box">
+            <div class="prompt-label">
+              <span>PROMPT I2V (VEO 2 / IMAGE-TO-VIDEO)</span>
+              <button class="copy-btn" onclick="copyPrompt('p1', this)">Copiar Prompt</button>
+            </div>
+            <div class="prompt-text" id="p1">Extreme macro slow cinematic pan around the cold amber glass bottle of kombucha. Natural condensation droplets slowly rolling down the glass surface. Crisp natural studio lighting with warm rim light, shallow depth of field, photorealistic, 4k 60fps slow motion.</div>
+          </div>
+          <div class="sound-note">
+            <span>🔊 Áudio sugerido:</span> Som ambiente suave de estúdio e estalo nítido da tampa de metal abrindo (segundo 0:02).
+          </div>
+        </div>
+      </article>
+
+      <!-- Take 2 -->
+      <article class="take-card">
+        <div class="media-col">
+          <img src="assets/take2_lifestyle_servida.jpg" alt="Servindo Kombucha na mesa" class="media-thumb">
+          <a href="assets/take2_lifestyle_servida.jpg" target="_blank" class="open-btn">Abrir Imagem ↗</a>
+        </div>
+        <div class="content-col">
+          <div class="take-header">
+            <span class="take-tag">TAKE 02 • O SERVIR / THE POUR</span>
+            <span class="take-duration">3.5 Segundos</span>
+          </div>
+          <h2 class="take-title">O Fluxo Rubi Despejado Sobre o Gelo</h2>
+          <p class="take-desc">
+            Em ângulo lateral e iluminação natural de cafeteria/estúdio, a garrafa verte o líquido rubi vibrante em um copo de cristal preenchido com cubos de gelo cristalinos. O líquido flui suavemente criando as primeiras borbulhas.
+          </p>
+          <div class="prompt-box">
+            <div class="prompt-label">
+              <span>PROMPT I2V (VEO 2 / IMAGE-TO-VIDEO)</span>
+              <button class="copy-btn" onclick="copyPrompt('p2', this)">Copiar Prompt</button>
+            </div>
+            <div class="prompt-text" id="p2">Side angle slow-motion shot, an artisanal chilled kombucha bottle pouring a sparkling effervescent ruby-red beverage into a clear crystal tumbler filled with clear ice cubes. Beautiful liquid stream, backlit with natural morning sunlight, 120fps high-speed cinematography, ultra realistic fluid dynamics.</div>
+          </div>
+          <div class="sound-note">
+            <span>🔊 Áudio sugerido:</span> Tilintar cristalino de pedras de gelo batendo e fluxo líquido aveludado.
+          </div>
+        </div>
+      </article>
+
+      <!-- Take 3 -->
+      <article class="take-card">
+        <div class="media-col">
+          <img src="assets/take2_lifestyle_servida.jpg" alt="Macro do gelo e impacto" class="media-thumb">
+          <a href="assets/take2_lifestyle_servida.jpg" target="_blank" class="open-btn">Abrir Imagem ↗</a>
+        </div>
+        <div class="content-col">
+          <div class="take-header">
+            <span class="take-tag">TAKE 03 • IMPACTO & MICRO-ESPIRROS</span>
+            <span class="take-duration">3.0 Segundos</span>
+          </div>
+          <h2 class="take-title">A Colisão Efervescente no Cubo de Gelo</h2>
+          <p class="take-desc">
+            Close macro no interior do copo. O líquido atinge a ponta de uma pedra de gelo transparente, gerando micro-borbulhas que explodem no ar em câmera super lenta, refletindo raios de sol quentes.
+          </p>
+          <div class="prompt-box">
+            <div class="prompt-label">
+              <span>PROMPT I2V (VEO 2 / IMAGE-TO-VIDEO)</span>
+              <button class="copy-btn" onclick="copyPrompt('p3', this)">Copiar Prompt</button>
+            </div>
+            <div class="prompt-text" id="p3">Macro close-up inside the glass, sparkling kombucha splashing gently against pristine clear ice cubes, microscopic fizzy bubbles exploding in air, golden and ruby reflections, high-speed macro lens, cinematic depth of field, natural organic motion.</div>
+          </div>
+          <div class="sound-note">
+            <span>🔊 Áudio sugerido:</span> Splash macio e estalos nítidos de borbulhas em alta frequência.
+          </div>
+        </div>
+      </article>
+
+      <!-- Take 4 -->
+      <article class="take-card">
+        <div class="media-col">
+          <img src="assets/take4_copo_efervescente.png" alt="Copo com colarinho efervescente" class="media-thumb">
+          <a href="assets/take4_copo_efervescente.png" target="_blank" class="open-btn">Abrir Imagem ↗</a>
+        </div>
+        <div class="content-col">
+          <div class="take-header">
+            <span class="take-tag">TAKE 04 • EFERVESCÊNCIA CREMOSA</span>
+            <span class="take-duration">3.0 Segundos</span>
+          </div>
+          <h2 class="take-title">O Colarinho Vivo de Fermentação Natural</h2>
+          <p class="take-desc">
+            O copo já servido com a formação da espuma viva no topo. Pequenas colunas contínuas de gás sobem pelas paredes de vidro, alimentando uma espuma cremosa e delicada que respira.
+          </p>
+          <div class="prompt-box">
+            <div class="prompt-label">
+              <span>PROMPT I2V (VEO 2 / IMAGE-TO-VIDEO)</span>
+              <button class="copy-btn" onclick="copyPrompt('p4', this)">Copiar Prompt</button>
+            </div>
+            <div class="prompt-text" id="p4">Eye-level macro shot of the freshly poured kombucha in a glass. Fine, lively natural carbonation bubbles rapidly dancing to the surface, creating a delicate creamy effervescent froth collar at the top. Sound-evoking visual texture, warm studio light.</div>
+          </div>
+          <div class="sound-note">
+            <span>🔊 Áudio sugerido:</span> Chiado contínuo e acolhedor de efervescência viva (*fizz*).
+          </div>
+        </div>
+      </article>
+
+      <!-- Take 5 -->
+      <article class="take-card">
+        <div class="media-col">
+          <img src="assets/take5_composicao_estudio.png" alt="Composição Packshot Final com a garrafa oficial" class="media-thumb">
+          <a href="assets/take5_composicao_estudio.png" target="_blank" class="open-btn">Abrir Imagem ↗</a>
+        </div>
+        <div class="content-col">
+          <div class="take-header">
+            <span class="take-tag">TAKE 05 • HERO PACKSHOT FINAL</span>
+            <span class="take-duration">3.5 Segundos</span>
+          </div>
+          <h2 class="take-title">O Encerramento Editorial de Desejo</h2>
+          <p class="take-desc">
+            Composição oficial com a <strong>mesma garrafa do Take 1 (Hibisco & Cranberry)</strong> em pé ao lado do copo com gelo sobre bancada editorial com sombra de contato e pétalas de hibisco. Câmera faz um recuo suave (*slow dolly out*), perfeita para o lettering final.
+          </p>
+          <div class="prompt-box">
+            <div class="prompt-label">
+              <span>PROMPT I2V (VEO 2 / IMAGE-TO-VIDEO)</span>
+              <button class="copy-btn" onclick="copyPrompt('p5', this)">Copiar Prompt</button>
+            </div>
+            <div class="prompt-text" id="p5">Slow pull-back camera dolly shot revealing the cold kombucha bottle standing heroically next to the sparkling poured glass with ice. Soft sunbeams filtering through, clean editorial studio setting, peaceful and refreshing mood, commercial aesthetic, locked sharp focus.</div>
+          </div>
+          <div class="sound-note">
+            <span>🔊 Áudio sugerido:</span> Acorde final aconchegante da trilha acústica e respiração relaxante.
+          </div>
+        </div>
+      </article>
+
+    </div>
+
+    <footer>
+      <p>Lurno Studio • Sistema de Produção Visual com IA • Brisa Viva Kombucha</p>
+    </footer>
+  </div>
+
+  <script>
+    function copyPrompt(id, btn) {
+      const text = document.getElementById(id).innerText;
+      navigator.clipboard.writeText(text).then(() => {
+        const originalText = btn.innerText;
+        btn.innerText = 'Copiado! ✓';
+        btn.classList.add('copied');
+        setTimeout(() => {
+          btn.innerText = originalText;
+          btn.classList.remove('copied');
+        }, 2200);
+      });
+    }
+  </script>
+</body>
+</html>

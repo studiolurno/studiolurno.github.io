@@ -1,0 +1,1898 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aura Granola — Central da Marca &amp; Portal Visual</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,700,50;0,9..144,800,50;1,9..144,700,50;1,9..144,800,50&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-page: #FAF6F0;
+      --bg-surface: #FFFFFF;
+      --bg-muted: #F2EAE0;
+      --ink-primary: #2C1E16;
+      --ink-secondary: #5C4B40;
+      --brand-primary: #C26D1F;
+      --brand-primary-dark: #9C4A2D;
+      --brand-accent: #4D6B53;
+      --brand-gold: #D97706;
+      --border-subtle: rgba(44, 30, 22, 0.16);
+      --border-strong: rgba(194, 109, 31, 0.36);
+      --status-green-bg: #E6F2E8;
+      --status-green-fg: #1F4E29;
+      --status-yellow-bg: #FDF3D7;
+      --status-yellow-fg: #6E4A00;
+      --status-red-bg: #FCE8E6;
+      --status-red-fg: #8C1D18;
+      --focus-ring: #2B5B6C;
+      --font-display: "Fraunces", Georgia, "Times New Roman", serif;
+      --font-sans: "Plus Jakarta Sans", system-ui, -apple-system, sans-serif;
+      --font-mono: "Space Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+      --ease-showcase: cubic-bezier(0.22, 1, 0.36, 1);
+      --radius-card: 26px;
+      --radius-pill: 9999px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+    html { font-size: 100%; scroll-behavior: smooth; }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; }
+    }
+
+    html, body {
+      margin: 0;
+      min-block-size: 100dvb;
+      background-color: var(--bg-page);
+      color: var(--ink-primary);
+      font-family: var(--font-sans);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: clip;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 9999;
+      opacity: 0.03;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='grain'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.82' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23grain)'/%3E%3C/svg%3E");
+    }
+
+    .skip-link {
+      position: fixed;
+      inset-block-start: -120px;
+      inset-inline-start: 1rem;
+      z-index: 10000;
+      padding: 0.75rem 1.25rem;
+      background-color: var(--ink-primary);
+      color: #FFFFFF;
+      border-radius: var(--radius-pill);
+      text-decoration: none;
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      font-weight: 700;
+    }
+    .skip-link:focus { inset-block-start: 1rem; }
+
+    :where(a:any-link, button, input, textarea, [tabindex]):focus-visible {
+      outline: 3px solid var(--focus-ring);
+      outline-offset: 3px;
+    }
+
+    .container { inline-size: min(100% - 2rem, 1200px); margin-inline: auto; }
+
+    h1, h2, h3, h4 {
+      font-family: var(--font-display);
+      font-variation-settings: "SOFT" 50;
+      letter-spacing: -0.02em;
+      line-height: 1.12;
+      color: var(--ink-primary);
+    }
+    h1 em, h2 em, h3 em { font-style: italic; color: var(--brand-primary); }
+
+    .mono-stamp {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.3rem 0.72rem;
+      border: 1px solid var(--ink-primary);
+      border-radius: 6px;
+      background-color: var(--bg-page);
+      color: var(--ink-primary);
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .mono-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.34rem 0.85rem;
+      border-radius: var(--radius-pill);
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+    .mono-pill.primary { background-color: var(--brand-primary); color: #FFFFFF; }
+    .mono-pill.herb { background-color: var(--brand-accent); color: #FFFFFF; }
+    .mono-pill.gold { background-color: var(--brand-gold); color: var(--ink-primary); border: 1px solid var(--ink-primary); }
+
+    /* =====================================================
+       1. BANNER SUPERIOR & CABEÇALHO COM LOGO OFICIAL
+       ===================================================== */
+    .demo-banner {
+      background-color: var(--ink-primary);
+      color: #FFF8EC;
+      padding: 0.65rem 1rem;
+      font-size: 0.85rem;
+    }
+    .demo-banner-inner { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 0.75rem; }
+    .hub-link { color: #F7D488; font-weight: 700; text-decoration: none; border-bottom: 1px solid currentColor; }
+    .hub-link:hover { color: #FFFFFF; }
+
+    .site-header {
+      background-color: var(--bg-surface);
+      border-block-end: 1px solid var(--border-subtle);
+      padding-block: 1.15rem;
+    }
+    .header-grid { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1.25rem; }
+    .brand-lockup { display: flex; flex-wrap: wrap; align-items: center; gap: 1.15rem; }
+    .brand-logo-img {
+      display: block;
+      block-size: 62px;
+      inline-size: auto;
+      max-inline-size: 100%;
+    }
+    .header-divider {
+      inline-size: 1px;
+      block-size: 40px;
+      background-color: var(--border-subtle);
+    }
+    .site-header h1 { margin: 0; font-size: clamp(1.25rem, 2vw, 1.55rem); }
+    .subtitle { margin-block: 0.2rem 0; color: var(--ink-secondary); font-size: 0.9rem; }
+
+    /* =====================================================
+       2. HEADER HERO — DUO EDITORIAL DE LINHA COMPLETA
+       ===================================================== */
+    .portal-showcase {
+      margin-block: 1.75rem 1.75rem;
+      position: relative;
+      border-radius: 32px;
+      border: 1.5px solid var(--ink-primary);
+      background-color: #F3E2CA;
+      overflow: hidden;
+      min-block-size: 460px;
+      display: grid;
+      grid-template-columns: minmax(320px, 5.4fr) minmax(0, 6.6fr);
+      align-items: center;
+    }
+
+    .showcase-info-col {
+      position: relative;
+      z-index: 4;
+      min-inline-size: 0;
+      padding: clamp(1.5rem, 3.2vw, 2.75rem);
+      display: grid;
+      gap: 1.1rem;
+    }
+    .showcase-title {
+      font-size: clamp(1.6rem, 2.45vw, 2.15rem);
+      margin: 0;
+      line-height: 1.1;
+      text-wrap: balance;
+    }
+    .showcase-desc { margin: 0; font-size: 0.96rem; color: var(--ink-primary); opacity: 0.9; max-inline-size: 48ch; }
+
+    .duo-flavor-list {
+      display: grid;
+      gap: 0.55rem;
+      margin-block-start: 0.25rem;
+    }
+    .duo-flavor-btn {
+      appearance: none;
+      text-align: start;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.65rem 0.9rem;
+      border-radius: 16px;
+      border: 1.5px solid var(--ink-primary);
+      background-color: rgba(255, 255, 255, 0.85);
+      color: var(--ink-primary);
+      cursor: pointer;
+      transition: transform 0.22s var(--ease-showcase), background-color 0.2s ease;
+    }
+    .duo-flavor-btn:hover { transform: translateX(4px); background-color: #FFFFFF; }
+    .duo-flavor-btn[aria-pressed="true"] {
+      background-color: var(--ink-primary);
+      color: #FFFFFF;
+    }
+    .duo-flavor-btn[aria-pressed="true"] .duo-flavor-sub { color: rgba(255, 255, 255, 0.78); }
+    .duo-swatch {
+      inline-size: 14px;
+      block-size: 14px;
+      border-radius: 50%;
+      border: 1px solid rgba(255,255,255,0.6);
+      flex: none;
+    }
+    .duo-flavor-name { font-weight: 700; font-size: 0.92rem; display: block; }
+    .duo-flavor-sub { font-size: 0.78rem; color: var(--ink-secondary); display: block; }
+
+    .duo-micro-note {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      color: var(--ink-secondary);
+      border-inline-start: 3px solid var(--brand-primary);
+      padding-inline-start: 0.75rem;
+      line-height: 1.45;
+    }
+
+    .showcase-visual-col {
+      position: relative;
+      min-inline-size: 0;
+      min-block-size: 460px;
+      block-size: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem 2rem;
+      overflow: hidden;
+    }
+    .showcase-halo {
+      position: absolute;
+      inline-size: clamp(300px, 36vw, 450px);
+      aspect-ratio: 1;
+      border-radius: 50%;
+      background-color: rgba(255, 255, 255, 0.65);
+      z-index: 1;
+      pointer-events: none;
+    }
+    .duo-stage {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      inline-size: 100%;
+      max-inline-size: 540px;
+      gap: 0.35rem;
+    }
+    .duo-pouch-card {
+      position: relative;
+      display: grid;
+      place-items: center;
+      inline-size: 49%;
+      transition: transform 0.55s var(--ease-showcase), opacity 0.35s ease, filter 0.35s ease;
+      cursor: pointer;
+    }
+    .duo-pouch-card.left {
+      transform: rotate(-2deg) translateX(8px);
+      z-index: 3;
+    }
+    .duo-pouch-card.right {
+      transform: rotate(2deg) translateX(-8px) scale(0.95);
+      z-index: 2;
+    }
+    .duo-pouch-card.is-active {
+      transform: rotate(0deg) scale(1.04) translateY(-6px);
+      z-index: 5;
+      filter: drop-shadow(0 26px 28px rgba(43, 33, 27, 0.26));
+    }
+    .duo-pouch-card.is-dimmed {
+      opacity: 0.86;
+      filter: drop-shadow(0 14px 16px rgba(43, 33, 27, 0.16));
+    }
+    .duo-pouch-card img {
+      display: block;
+      inline-size: 100%;
+      max-block-size: 385px;
+      object-fit: contain;
+    }
+    .duo-floor-shadow {
+      position: absolute;
+      inset-block-end: -10px;
+      inset-inline: 14%;
+      block-size: 20px;
+      background: radial-gradient(ellipse at center, rgba(43, 33, 27, 0.28) 0%, transparent 72%);
+      z-index: 1;
+      pointer-events: none;
+    }
+    .hero-seal {
+      position: absolute;
+      inset-block-end: 1.15rem;
+      inset-inline-end: 1.15rem;
+      inline-size: 92px;
+      block-size: 92px;
+      z-index: 6;
+      pointer-events: none;
+      filter: drop-shadow(0 8px 14px rgba(43, 33, 27, 0.12));
+    }
+
+    /* =====================================================
+       3. RAIO-X DO PRODUTO (SEM RÉGUA DE 3 PASSOS)
+       ===================================================== */
+    .anatomy-stage-card {
+      background-color: var(--bg-surface);
+      border: 1.5px solid var(--border-strong);
+      border-radius: 28px;
+      padding: clamp(1.35rem, 3vw, 2.25rem);
+      display: grid;
+      gap: 1.5rem;
+      margin-block: 0 1.75rem;
+    }
+    .stamp-row { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 0.6rem; }
+    .anatomy-head h2 { margin: 0; font-size: clamp(1.45rem, 2.6vw, 1.95rem); }
+    .anatomy-head p { margin: 0.45rem 0 0; color: var(--ink-secondary); max-inline-size: 62ch; font-size: 0.95rem; }
+
+    .raiox-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+      gap: 1.5rem;
+      align-items: center;
+    }
+    .raiox-photo-frame {
+      position: relative;
+      min-inline-size: 0;
+      border-radius: 22px;
+      overflow: hidden;
+      border: 1.5px solid var(--ink-primary);
+      background-color: var(--bg-muted);
+      aspect-ratio: 4 / 3;
+    }
+    .raiox-photo-frame img {
+      display: block;
+      inline-size: 100%;
+      block-size: 100%;
+      object-fit: cover;
+    }
+    .raiox-photo-badge {
+      position: absolute;
+      inset-block-end: 0.9rem;
+      inset-inline-start: 0.9rem;
+      background-color: rgba(255, 255, 255, 0.94);
+      border: 1px solid var(--ink-primary);
+      border-radius: 10px;
+      padding: 0.35rem 0.7rem;
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: var(--ink-primary);
+    }
+
+    .raiox-callouts {
+      min-inline-size: 0;
+      display: grid;
+      gap: 0.85rem;
+    }
+    .raiox-callout-item {
+      background-color: var(--bg-page);
+      border: 1px solid var(--border-subtle);
+      border-inline-start: 4px solid var(--brand-primary);
+      border-radius: 0 16px 16px 0;
+      padding: 0.85rem 1.05rem;
+      display: grid;
+      gap: 0.2rem;
+    }
+    .raiox-callout-item.herb { border-inline-start-color: var(--brand-accent); }
+    .raiox-callout-item.gold { border-inline-start-color: var(--brand-gold); }
+    .raiox-callout-kicker {
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--brand-primary);
+    }
+    .raiox-callout-item.herb .raiox-callout-kicker { color: var(--brand-accent); }
+    .raiox-callout-item.gold .raiox-callout-kicker { color: #8A5E08; }
+    .raiox-callout-item h3 { margin: 0; font-size: 1.05rem; }
+    .raiox-callout-item p { margin: 0; font-size: 0.86rem; color: var(--ink-secondary); line-height: 1.45; }
+
+    /* =====================================================
+       4. VITRINE SOCIAL & COMERCIAL (PADRONIZADA BRISA VIVA)
+       ===================================================== */
+    .social-menu-section {
+      background-color: var(--bg-surface);
+      border: 1.5px solid var(--ink-primary);
+      border-radius: 28px;
+      padding: clamp(1.35rem, 3vw, 2.25rem);
+      margin-block: 0 1.85rem;
+      display: grid;
+      gap: 1.25rem;
+    }
+    .social-menu-layout {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 1.35rem;
+      align-items: stretch;
+    }
+
+    .ig-phone-shell {
+      min-inline-size: 0;
+      block-size: 100%;
+      align-content: start;
+      background-color: var(--bg-page);
+      border: 1.5px solid var(--ink-primary);
+      border-radius: 24px;
+      padding: 1rem;
+      display: grid;
+      gap: 0.85rem;
+    }
+    .ig-profile-head {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.65rem;
+      border-block-end: 1px solid var(--border-subtle);
+      padding-block-end: 0.75rem;
+    }
+    .ig-avatar-row { display: flex; align-items: center; gap: 0.65rem; }
+    .ig-avatar {
+      inline-size: 40px;
+      block-size: 40px;
+      border-radius: 50%;
+      border: 1.5px solid var(--ink-primary);
+      background-color: var(--bg-surface);
+      padding: 3px;
+      object-fit: contain;
+      flex-shrink: 0;
+    }
+    .ig-handle { font-weight: 700; font-size: 0.92rem; line-height: 1.2; }
+    .ig-bio { font-size: 0.75rem; color: var(--ink-secondary); }
+
+    .feed-grid-3x3 {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.45rem;
+    }
+    .feed-tile {
+      position: relative;
+      aspect-ratio: 1 / 1;
+      border-radius: 10px;
+      overflow: hidden;
+      border: 1px solid var(--border-subtle);
+      background-color: var(--bg-muted);
+    }
+    .feed-tile img {
+      display: block;
+      inline-size: 100%;
+      block-size: 100%;
+      object-fit: cover;
+      object-position: center;
+      transition: transform 0.3s ease;
+    }
+    .feed-tile:hover img { transform: scale(1.03); }
+    .feed-slot-badge {
+      position: absolute;
+      inset-block-end: 0.32rem;
+      inset-inline-start: 0.32rem;
+      background-color: rgba(43, 33, 27, 0.85);
+      color: #F8F6F0;
+      font-family: var(--font-mono);
+      font-size: 0.6rem;
+      font-weight: 700;
+      padding: 0.12rem 0.4rem;
+      border-radius: 6px;
+    }
+
+    /* Coluna Direita (Padronizada com Brisa Viva — Bento alinhado) */
+    .menu-card-col {
+      min-inline-size: 0;
+      block-size: 100%;
+      display: grid;
+      grid-template-rows: 1fr auto;
+      gap: 1.35rem;
+    }
+    .receipt-menu {
+      min-inline-size: 0;
+      block-size: 100%;
+      background-color: var(--bg-page);
+      border: 1.5px solid var(--ink-primary);
+      border-radius: 20px;
+      padding: 1.2rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 0.85rem;
+    }
+
+    .video-right-shell {
+      position: relative;
+      border-radius: 14px;
+      overflow: hidden;
+      border: 1.5px solid var(--ink-primary);
+      background-color: #2B211B;
+      aspect-ratio: 9 / 16;
+      max-block-size: 405px;
+      max-inline-size: 228px;
+      margin: auto;
+      inline-size: 100%;
+      box-shadow: 0 12px 26px rgba(43, 33, 27, 0.2);
+    }
+    .video-right-shell video {
+      display: block;
+      inline-size: 100%;
+      block-size: 100%;
+      object-fit: cover;
+    }
+    .video-bottom-strip {
+      border-block-start: 1.5px solid var(--ink-primary);
+      padding-block-start: 0.65rem;
+      font-family: var(--font-mono);
+      font-size: 0.69rem;
+      color: var(--ink-secondary);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 0.35rem;
+    }
+
+    /* Catálogo Editável Mini (Bloco independente alinhado ao Bento) */
+    .menu-preview-mini {
+      display: grid;
+      grid-template-columns: 88px 1fr;
+      gap: 0.95rem;
+      align-items: center;
+      background-color: var(--bg-page);
+      border: 1.5px solid var(--ink-primary);
+      border-radius: 20px;
+      padding: 1rem 1.2rem;
+    }
+    .menu-preview-mini img {
+      inline-size: 88px;
+      aspect-ratio: 794 / 1123;
+      object-fit: cover;
+      object-position: top center;
+      border-radius: 8px;
+      border: 1px solid var(--border-subtle);
+      display: block;
+    }
+
+    /* =====================================================
+       5. PORTAL VIVO — BARRA DE 6 ABAS + INDICADOR (01 / 06)
+       ===================================================== */
+    main { padding-block: 0 3.75rem; }
+
+    .tabs-bar {
+      position: sticky;
+      inset-block-start: 0.65rem;
+      z-index: 40;
+      inline-size: 100%;
+      max-inline-size: 100%;
+      background-color: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      border: 1.5px solid var(--ink-primary);
+      border-radius: var(--radius-pill);
+      padding: 0.35rem 0.5rem;
+      margin-block-end: 1.75rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.5rem;
+      overflow: hidden;
+    }
+
+    [role="tablist"] {
+      display: flex;
+      flex: 1 1 auto;
+      min-inline-size: 0;
+      gap: 0.2rem;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+    [role="tablist"]::-webkit-scrollbar { display: none; }
+
+    [role="tab"] {
+      flex: none;
+      appearance: none;
+      border: 0;
+      border-radius: var(--radius-pill);
+      background: transparent;
+      color: var(--ink-secondary);
+      font-family: var(--font-sans);
+      font-size: 0.8rem;
+      font-weight: 700;
+      padding: 0.52rem 0.78rem;
+      min-block-size: 40px;
+      cursor: pointer;
+      white-space: nowrap;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.32rem;
+      transition: background-color 0.2s ease, color 0.2s ease;
+    }
+    [role="tab"]:hover { color: var(--brand-primary); background-color: var(--bg-page); }
+    [role="tab"][aria-selected="true"] {
+      background-color: var(--brand-primary);
+      color: #FFFFFF;
+    }
+    [role="tab"].is-locked {
+      color: var(--ink-secondary);
+      opacity: 0.76;
+    }
+    [role="tab"].is-locked[aria-selected="true"] {
+      background-color: var(--ink-primary);
+      color: #FFFFFF;
+      opacity: 1;
+    }
+
+    .tab-progress-badge {
+      flex: none;
+      padding: 0.3rem 0.75rem;
+      border-radius: var(--radius-pill);
+      background-color: var(--bg-page);
+      border: 1px solid var(--border-subtle);
+      font-family: var(--font-mono);
+      font-size: 0.74rem;
+      font-weight: 700;
+      color: var(--ink-primary);
+    }
+
+    [role="tabpanel"] { outline: none; }
+    [role="tabpanel"][hidden] { display: none; }
+    .panel-inner { display: grid; gap: 1.35rem; }
+
+    .section-card {
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-card);
+      padding: clamp(1.25rem, 2.8vw, 2.05rem);
+    }
+    .section-card h2 { margin-block: 0 0.5rem; font-size: clamp(1.35rem, 2.3vw, 1.7rem); }
+    .section-card > p { margin-block: 0 1.25rem; color: var(--ink-secondary); max-inline-size: 72ch; }
+
+    /* Brandboard & Swatches */
+    .card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(215px, 1fr)); gap: 1rem; }
+    .card-grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(295px, 1fr)); gap: 1.25rem; }
+
+    .logo-showcase-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1rem;
+      margin-block-end: 1.25rem;
+    }
+    .logo-board-box {
+      border: 1px solid var(--border-subtle);
+      border-radius: 20px;
+      padding: 1.5rem;
+      background-color: var(--bg-page);
+      display: grid;
+      justify-items: center;
+      align-content: space-between;
+      gap: 1rem;
+      text-align: center;
+    }
+    .logo-preview-stage {
+      inline-size: 100%;
+      min-block-size: 112px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .logo-preview-stage img {
+      display: block;
+      max-block-size: 96px;
+      max-inline-size: 100%;
+      inline-size: auto;
+      block-size: auto;
+      object-fit: contain;
+    }
+
+    .swatch-card {
+      border: 1px solid var(--border-subtle);
+      border-radius: 20px;
+      padding: 1rem;
+      background-color: var(--bg-page);
+      display: grid;
+      gap: 0.65rem;
+    }
+    .swatch-color {
+      display: block;
+      block-size: 78px;
+      border-radius: 14px;
+      border: 1px solid rgba(43, 33, 27, 0.14);
+    }
+    .swatch-card h3 { margin: 0; font-size: 1.05rem; }
+    .swatch-meta { font-size: 0.84rem; color: var(--ink-secondary); display: grid; gap: 0.3rem; }
+
+    .specimen-aa {
+      font-family: var(--font-display);
+      font-size: 2.35rem;
+      font-weight: 800;
+      line-height: 1;
+      color: var(--brand-primary);
+    }
+    .specimen-serif {
+      font-family: var(--font-display);
+      font-size: 1.32rem;
+      font-weight: 700;
+      color: var(--brand-primary);
+      line-height: 1.25;
+      padding: 0.85rem;
+      border-radius: 12px;
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+    }
+    .specimen-sans {
+      font-size: 0.9rem;
+      color: var(--ink-primary);
+      padding: 0.85rem;
+      border-radius: 12px;
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+    }
+
+    .copy-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.5rem;
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: 10px;
+      padding: 0.35rem 0.65rem;
+    }
+    .copy { position: relative; display: inline-flex; align-items: center; gap: 0.4rem; flex: none; }
+    .copy-button {
+      appearance: none;
+      border: 1px solid var(--ink-primary);
+      background-color: var(--bg-surface);
+      color: var(--ink-primary);
+      border-radius: var(--radius-pill);
+      padding: 0.42rem 0.9rem;
+      min-inline-size: 44px;
+      min-block-size: 40px;
+      font-family: var(--font-mono);
+      font-size: 0.74rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      cursor: pointer;
+    }
+    .copy-button:hover { background-color: var(--bg-muted); }
+    .copy-button.primary-btn { background-color: var(--brand-primary); border-color: var(--brand-primary); color: #FFFFFF; }
+    .copy-button.primary-btn:hover { background-color: var(--brand-primary-dark); }
+
+    .tip { font-family: var(--font-mono); font-size: 0.72rem; font-weight: 700; color: var(--status-green-fg); opacity: 0; transition: opacity 0.15s ease; }
+    .copy-button[data-copied] + .tip { opacity: 1; }
+    .copy-button[data-failed] + .tip { opacity: 1; color: var(--status-red-fg); }
+
+    .code-box {
+      background-color: #231B16;
+      color: #FAF3E8;
+      border-radius: 18px;
+      padding: 1.25rem;
+      overflow-x: auto;
+      font-family: var(--font-mono);
+      font-size: 0.82rem;
+      line-height: 1.6;
+      white-space: pre-wrap;
+    }
+
+    .toolbar-between { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 0.75rem; margin-block-end: 0.85rem; }
+
+    /* Cards de Produtos (Enquadrados no Quadro) */
+    .item-popout-card {
+      position: relative;
+      margin-block-start: 0;
+      border: 1.5px solid var(--border-strong);
+      border-radius: 26px;
+      padding: 1.4rem;
+      background-color: var(--bg-page);
+      display: grid;
+      gap: 0.85rem;
+      align-content: start;
+    }
+    .item-popout-head {
+      display: grid;
+      grid-template-columns: 116px 1fr;
+      gap: 1.15rem;
+      align-items: center;
+    }
+    .item-popout-img-wrap {
+      margin-block-start: 0;
+      block-size: 146px;
+      inline-size: 116px;
+      border-radius: 16px;
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      padding: 0.45rem;
+      display: grid;
+      place-items: center;
+    }
+    .item-popout-img-wrap img {
+      max-block-size: 100%;
+      max-inline-size: 100%;
+      object-fit: contain;
+      filter: drop-shadow(0 8px 10px rgba(43, 33, 27, 0.16));
+    }
+
+    .item-card {
+      border: 1px solid var(--border-subtle);
+      border-radius: 20px;
+      padding: 1.25rem;
+      background-color: var(--bg-page);
+      display: grid;
+      grid-template-rows: auto 1fr auto;
+      gap: 0.85rem;
+    }
+    .item-card h3 { margin: 0; }
+    .prompt-actions {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .item-tag {
+      display: inline-block;
+      inline-size: fit-content;
+      padding: 0.28rem 0.75rem;
+      border-radius: var(--radius-pill);
+      background-color: var(--brand-primary);
+      color: #FFFFFF;
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+    .allergen-box {
+      background-color: var(--bg-surface);
+      border-inline-start: 4px solid var(--brand-primary);
+      padding: 0.8rem 0.95rem;
+      border-radius: 0 12px 12px 0;
+      font-size: 0.86rem;
+      font-weight: 700;
+    }
+    .claims-list { margin: 0; padding-inline-start: 1.2rem; font-size: 0.9rem; }
+
+    /* Kit Canva Pro Editável (Sem repetição de grid & sem deck 5 slides) */
+    .canva-kit-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.15rem;
+    }
+    .mockup-card {
+      border: 1px solid var(--border-subtle);
+      border-radius: 22px;
+      padding: 1rem;
+      background-color: var(--bg-page);
+      display: grid;
+      grid-template-rows: auto auto 1fr auto;
+      gap: 0.75rem;
+    }
+    .preview-frame {
+      position: relative;
+      display: grid;
+      place-items: center;
+      inline-size: 100%;
+      aspect-ratio: 3 / 4;
+      overflow: hidden;
+      border: 1px solid var(--border-subtle);
+      border-radius: 14px;
+      background-color: var(--bg-muted);
+    }
+    .preview-frame img {
+      display: block;
+      inline-size: 100%;
+      block-size: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+    .preview-frame.is-contain {
+      background-color: #EFE6D5;
+      padding: 0.65rem;
+    }
+    .preview-frame.is-contain video {
+      display: block;
+      max-inline-size: 100%;
+      max-block-size: 100%;
+      inline-size: auto;
+      block-size: 100%;
+      aspect-ratio: 9 / 16;
+      border-radius: 10px;
+      border: 1px solid var(--border-subtle);
+      background-color: #2B211B;
+      object-fit: cover;
+    }
+    .preview-frame.is-square-mosaic {
+      background-color: var(--bg-muted);
+      padding: 0.65rem;
+    }
+    .mini-mosaic-inside {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 4px;
+      inline-size: 100%;
+      aspect-ratio: 1 / 1;
+      padding: 6px;
+      border-radius: 10px;
+      border: 1px solid var(--border-subtle);
+      background-color: #FFFFFF;
+    }
+    .mini-mosaic-inside img {
+      display: block;
+      inline-size: 100%;
+      block-size: 100%;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+      object-position: center;
+      border-radius: 4px;
+    }
+    .stories-pair-inside {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      align-items: center;
+      inline-size: 100%;
+      block-size: 100%;
+      padding: 10px;
+      background-color: #EFE6D5;
+    }
+    .stories-pair-inside img {
+      inline-size: 100%;
+      block-size: auto;
+      aspect-ratio: 9 / 16;
+      object-fit: cover;
+      border-radius: 8px;
+      border: 1px solid var(--border-subtle);
+      box-shadow: 0 6px 14px rgba(43, 33, 27, 0.12);
+    }
+
+    .mockup-card h3 { margin: 0; font-size: 1.15rem; }
+    .mockup-card p { margin: 0; font-size: 0.88rem; color: var(--ink-secondary); }
+    .mockup-actions { display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: center; }
+
+    .canva-link-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.4rem;
+      min-block-size: 44px;
+      padding: 0.5rem 1.05rem;
+      border-radius: var(--radius-pill);
+      border: 1.5px solid var(--brand-primary);
+      background-color: var(--brand-primary);
+      color: #FFFFFF;
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 700;
+    }
+    .canva-link-btn:hover { background-color: var(--brand-primary-dark); }
+    .canva-link-btn.outline { background-color: var(--bg-surface); border-color: var(--ink-primary); color: var(--ink-primary); }
+    .canva-link-btn.outline:hover { background-color: var(--bg-muted); }
+
+    /* Painéis Bloqueados Elegantes (Abas 5 e 6) */
+    .locked-stage {
+      position: relative;
+      border-radius: 26px;
+      border: 1.5px solid var(--ink-primary);
+      background-color: var(--bg-surface);
+      overflow: hidden;
+      min-block-size: 380px;
+      display: grid;
+      place-items: center;
+      padding: clamp(1.5rem, 3.5vw, 3rem);
+    }
+    .locked-teaser-bg {
+      position: absolute;
+      inset: 0;
+      padding: 2rem;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+      opacity: 0.2;
+      filter: blur(4px);
+      pointer-events: none;
+      user-select: none;
+    }
+    .locked-ghost-card {
+      border-radius: 16px;
+      border: 1px solid var(--ink-primary);
+      background-color: var(--bg-muted);
+      padding: 1.25rem;
+    }
+    .locked-overlay-card {
+      position: relative;
+      z-index: 2;
+      max-inline-size: 620px;
+      background-color: rgba(255, 255, 255, 0.96);
+      border: 1.5px solid var(--ink-primary);
+      border-radius: 24px;
+      padding: clamp(1.5rem, 3vw, 2.25rem);
+      text-align: center;
+      display: grid;
+      justify-items: center;
+      gap: 0.9rem;
+    }
+    .lock-icon-circle {
+      inline-size: 56px;
+      block-size: 56px;
+      border-radius: 50%;
+      background-color: var(--bg-page);
+      border: 1.5px solid var(--ink-primary);
+      display: grid;
+      place-items: center;
+      font-size: 1.35rem;
+    }
+    .locked-overlay-card h2 { margin: 0; font-size: clamp(1.35rem, 2.4vw, 1.75rem); }
+    .locked-overlay-card p { margin: 0; font-size: 0.94rem; color: var(--ink-secondary); }
+    .locked-benefits {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.5rem;
+      margin-block: 0.25rem;
+    }
+    .locked-benefits span {
+      background-color: var(--bg-page);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-pill);
+      padding: 0.32rem 0.8rem;
+      font-size: 0.78rem;
+      font-weight: 600;
+    }
+
+    .site-footer { border-block-start: 1px solid var(--border-subtle); padding-block: 1.6rem; color: var(--ink-secondary); font-size: 0.875rem; text-align: center; }
+
+    @media (max-width: 960px) {
+      .portal-showcase { grid-template-columns: 1fr; }
+      .showcase-visual-col { min-block-size: 360px; padding-block: 1.5rem 2.25rem; }
+      .raiox-grid { grid-template-columns: 1fr; }
+      .social-menu-layout { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 640px) {
+      .header-divider { display: none; }
+      .item-popout-head { grid-template-columns: 1fr; }
+      .item-popout-img-wrap { margin-block-start: 0; block-size: 145px; inline-size: 120px; }
+      .hero-seal { inline-size: 72px; block-size: 72px; inset-block-end: 0.75rem; inset-inline-end: 0.75rem; }
+      .locked-teaser-bg { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <a href="#conteudo-principal" class="skip-link">Ir para o conteúdo principal</a>
+
+  <div class="demo-banner">
+    <div class="container demo-banner-inner">
+      <span>AURA GRANOLA — Portal de Marca &amp; Acervo Oficial</span>
+      <a class="hub-link" href="../index.html">← Voltar para a Página Inicial e Pacotes</a>
+    </div>
+  </div>
+
+  <!-- CABEÇALHO COM LOGO OFICIAL -->
+  <header class="site-header">
+    <div class="container header-grid">
+      <div class="brand-lockup">
+        <img class="brand-logo-img" src="./assets/logo-aura-granola.svg" alt="Logotipo oficial Aura Granola — Pequenos Lotes • Forno Lento">
+        <div class="header-divider" aria-hidden="true"></div>
+        <div>
+          <h1>Central da Marca</h1>
+          <p class="subtitle">Portal Online, Kit Canva, Ficha para Lojistas, Pós-Venda e Guia de Voz para IA.</p>
+        </div>
+      </div>
+      <span class="mono-pill herb">Alimentos Embalados • Linha 250g</span>
+    </div>
+  </header>
+
+  <!-- 1. HEADER SHOWCASE — DUO EDITORIAL DE LINHA COMPLETA -->
+  <section class="container" aria-label="Apresentação da Linha Completa Aura Granola">
+    <div class="portal-showcase">
+      <div class="showcase-info-col">
+        <div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
+          <span class="mono-pill primary">Pacote Essencial (Pacote 1) • 2 Produtos</span>
+          <span class="mono-stamp">Portal + Canva + Triagem Anvisa</span>
+        </div>
+
+        <h2 class="showcase-title">Crocância artesanal e receita <em>transparente</em>.</h2>
+        <p id="duo-desc" class="showcase-desc">Assadas lentamente em forno baixo em pequenos lotes para manter grãos e castanhas inteiras crocantes — com visor frontal transparente para o cliente ver o produto real antes de abrir.</p>
+
+        <div class="duo-flavor-list" role="group" aria-label="Destacar sabor na apresentação">
+          <button type="button" class="duo-flavor-btn" data-sku="0" aria-pressed="true">
+            <span class="duo-swatch" style="background-color: #9C4A2D;"></span>
+            <span>
+              <span class="duo-flavor-name">01. Mel &amp; Castanha-do-Pará (250g)</span>
+              <span class="duo-flavor-sub">Aveia em flocos, mel silvestre, sementes de abóbora e castanhas inteiras.</span>
+            </span>
+          </button>
+          <button type="button" class="duo-flavor-btn" data-sku="1" aria-pressed="false">
+            <span class="duo-swatch" style="background-color: #4B281E;"></span>
+            <span>
+              <span class="duo-flavor-name">02. Cacau 70% &amp; Coco Crocante (250g)</span>
+              <span class="duo-flavor-sub">Aveia sem glúten, nibs de cacau, pasta de tâmaras e lascas de coco tostadas.</span>
+            </span>
+          </button>
+        </div>
+
+        <div id="duo-safety-note" class="duo-micro-note">
+          ROTULAGEM ANVISA: Embalagem kraft com visor real de grãos e área frontal limpa reservada para tabela nutricional e alerta obrigatório de alergênicos.
+        </div>
+      </div>
+
+      <div class="showcase-visual-col">
+        <div class="showcase-halo" aria-hidden="true"></div>
+
+        <div class="duo-stage">
+          <div id="pouch-card-0" class="duo-pouch-card left is-active" role="button" tabindex="0" aria-label="Destacar Mel e Castanha-do-Pará">
+            <img src="../assets/cutouts/aura_sku01_pouch.png" alt="Embalagem Stand-up Pouch Kraft Aura Granola Mel e Castanha-do-Pará 250g com visor transparente">
+            <div class="duo-floor-shadow" aria-hidden="true"></div>
+          </div>
+          <div id="pouch-card-1" class="duo-pouch-card right is-dimmed" role="button" tabindex="0" aria-label="Destacar Cacau 70% e Coco Crocante">
+            <img src="../assets/cutouts/aura_sku02_pouch.png" alt="Embalagem Stand-up Pouch Kraft Aura Granola Cacau 70% e Coco Crocante 250g com visor transparente">
+            <div class="duo-floor-shadow" aria-hidden="true"></div>
+          </div>
+        </div>
+
+        <img class="hero-seal" src="./assets/selo-aura-granola.svg" alt="Selo Pequenos Lotes Brasil • Receita Transparente">
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. RAIO-X DO PRODUTO (REFORMULADO & SEM RÉGUA DE PASSOS) -->
+  <section class="container" aria-label="Raio-X do Produto Aura Granola">
+    <article class="anatomy-stage-card">
+      <div class="stamp-row">
+        <span class="mono-pill primary">Raio-X do Produto</span>
+        <span class="mono-stamp">Ingredientes Reais &amp; Rotulagem</span>
+      </div>
+
+      <div class="anatomy-head">
+        <h2>O que vai dentro do pacote — <em>sem letras miúdas</em></h2>
+        <p>Do grão inteiro na bancada ao posicionamento frontal na embalagem kraft: cada detalhe foi pensado para provar qualidade visual e proteger a marca contra erros de comunicação.</p>
+      </div>
+
+      <div class="raiox-grid">
+        <div class="raiox-photo-frame">
+          <img src="./assets/aura_raiox_mesa.jpg" alt="Fotografia de estúdio Aura Granola mostrando embalagem kraft com visor transparente, tigela com iogurte e banana, e montinhos separados de castanhas-do-pará inteiras, aveia, coco tostado, sementes de abóbora e nibs de cacau">
+        </div>
+
+        <div class="raiox-callouts">
+          <div class="raiox-callout-item">
+            <span class="raiox-callout-kicker">01 • Matéria-Prima Nobre</span>
+            <h3>Castanhas-do-Pará Inteiras</h3>
+            <p>Não usamos farelo ou resíduo moído: as castanhas inteiras aparecem logo pelo visor transparente e trazem crocância natural de verdade.</p>
+          </div>
+
+          <div class="raiox-callout-item herb">
+            <span class="raiox-callout-kicker">02 • Processo Artesanal</span>
+            <h3>Forno Baixo &amp; Lento</h3>
+            <p>A aveia é tostada em pequenos lotes em temperatura controlada para caramelizar o mel silvestre sem amargar ou ressecar as sementes de abóbora.</p>
+          </div>
+
+          <div class="raiox-callout-item gold">
+            <span class="raiox-callout-kicker">03 • Rótulo Limpo</span>
+            <h3>Zero Xaropes &amp; Aromas Sintéticos</h3>
+            <p>Adoçada apenas com mel silvestre (Tradicional) ou pasta de tâmaras (Cacau 70%) — apenas ingredientes reconhecíveis na despensa.</p>
+          </div>
+
+          <div class="raiox-callout-item">
+            <span class="raiox-callout-kicker">04 • Transparência Anvisa</span>
+            <h3>Reserva de Rótulo &amp; Alergênicos</h3>
+            <p>Área frontal limpa para peso e informações obrigatórias, proibindo promessas falsas como "sem açúcar" no sabor com mel.</p>
+          </div>
+        </div>
+      </div>
+    </article>
+  </section>
+
+  <!-- 3. VITRINE SOCIAL & COMERCIAL (PADRONIZADA BRISA VIVA) -->
+  <section class="container" aria-label="Vitrine Social e Comercial Aura Granola">
+    <div class="social-menu-section">
+      <div class="stamp-row">
+        <span class="mono-pill herb">Vitrine Social &amp; Comercial</span>
+      </div>
+
+      <div class="social-menu-layout">
+        <!-- Grade 3x3 dentro do perfil (Coluna Esquerda) -->
+        <div class="ig-phone-shell">
+          <div class="ig-profile-head">
+            <div class="ig-avatar-row">
+              <img class="ig-avatar" src="./assets/selo-aura-granola.svg" alt="Foto de perfil @auragranola">
+              <div>
+                <div class="ig-handle">@auragranola</div>
+                <div class="ig-bio">Granola artesanal em pequenos lotes • Forno lento • Sem letras miúdas</div>
+              </div>
+            </div>
+            <span class="mono-stamp">Feed 1:1 • 9 Posts</span>
+          </div>
+
+          <div class="feed-grid-3x3">
+            <div class="feed-tile"><img src="./canva-previews/feed_01.png" alt="Post 01 (1:1): Crocância artesanal de forno lento — Granola Mel e Castanha-do-Pará 250g"><span class="feed-slot-badge">01</span></div>
+            <div class="feed-tile"><img src="./canva-previews/feed_02.png" alt="Post 02 (1:1): Ritual matinal — tigela com iogurte frio, banana fresca e castanhas inteiras"><span class="feed-slot-badge">02</span></div>
+            <div class="feed-tile"><img src="./canva-previews/feed_03.png" alt="Post 03 (1:1): Anatomia da crocância artesanal — castanhas inteiras, forno baixo e despensa real"><span class="feed-slot-badge">03</span></div>
+            <div class="feed-tile"><img src="./canva-previews/feed_04.png" alt="Post 04 (1:1): Manifesto editorial em terracota — Comida de verdade não precisa de promessa mágica"><span class="feed-slot-badge">04</span></div>
+            <div class="feed-tile"><img src="./canva-previews/feed_05.png" alt="Post 05 (1:1): Do grão ao pacote — raio-x real da receita na mesa e visor transparente"><span class="feed-slot-badge">05</span></div>
+            <div class="feed-tile"><img src="./canva-previews/feed_06.png" alt="Post 06 (1:1): Produto 02 — Granola Cacau 70% e Coco Crocante adoçada com pasta de tâmaras"><span class="feed-slot-badge">06</span></div>
+            <div class="feed-tile"><img src="./canva-previews/feed_07.png" alt="Post 07 (1:1): Guia de rótulo — Alérgicos e ingredientes sem pegadinhas"><span class="feed-slot-badge">07</span></div>
+            <div class="feed-tile"><img src="./canva-previews/feed_08.png" alt="Post 08 (1:1): Ritual matinal servindo Cacau 70% sobre iogurte com frutas vermelhas"><span class="feed-slot-badge">08</span></div>
+            <div class="feed-tile"><img src="./canva-previews/feed_09.png" alt="Post 09 (1:1): Prova social de despensa e linha completa com os 2 sabores em embalagem kraft"><span class="feed-slot-badge">09</span></div>
+          </div>
+        </div>
+
+        <!-- Coluna Direita: Vídeo Institucional + Catálogo Editável (onde estava o Catálogo de Geladeira) -->
+        <div class="menu-card-col">
+          <div class="receipt-menu">
+            <div class="video-right-shell">
+              <video controls playsinline muted loop preload="metadata" poster="./canva-previews/reel_frame_01.png">
+                <source src="./canva-previews/reels_aura_granola.mp4" type="video/mp4">
+              </video>
+            </div>
+
+            <div class="video-bottom-strip">
+              <span>CROCÂNCIA MATINAL • PEQUENOS LOTES</span>
+              <strong>REELS</strong>
+            </div>
+          </div>
+
+          <div class="menu-preview-mini">
+            <img src="./canva-previews/cardapio_aura.png" alt="Prévia do Catálogo e Tabela Comercial editorial Aura Granola no Canva">
+            <div style="display:grid; gap:0.45rem;">
+              <strong style="font-size:0.94rem; line-height:1.25;">Catálogo &amp; Cardápio Editável</strong>
+              <span style="font-size:0.8rem; color:var(--ink-secondary);">Arquivo oficial atualizado com os 2 produtos em direção editorial para WhatsApp ou pontos de venda.</span>
+              <a class="canva-link-btn" style="min-block-size:36px; padding:0.35rem 0.85rem; font-size:0.78rem; inline-size:fit-content;" href="https://www.canva.com/d/Q_qQvM3fNI3WMGV" target="_blank" rel="noopener noreferrer">Editar no Canva ↗</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. PORTAL VIVO (6 ABAS PADRONIZADAS) -->
+  <main id="conteudo-principal" tabindex="-1" class="container">
+    <div class="tabs-bar">
+      <div role="tablist" aria-label="Seções do Portal Vivo Aura Granola">
+        <button type="button" role="tab" id="tab-visual" aria-selected="true" tabindex="0">1. Identidade &amp; Estilo</button>
+        <button type="button" role="tab" id="tab-items" aria-selected="false" tabindex="-1">2. Produtos &amp; Fichas</button>
+        <button type="button" role="tab" id="tab-ai" aria-selected="false" tabindex="-1">3. Cérebro de IA</button>
+        <button type="button" role="tab" id="tab-canva" aria-selected="false" tabindex="-1">4. Kit Canva</button>
+        <button type="button" role="tab" id="tab-compliance" class="is-locked" aria-selected="false" tabindex="-1">5. Filtro Segurança <span aria-hidden="true">🔒</span></button>
+        <button type="button" role="tab" id="tab-autopilot" class="is-locked" aria-selected="false" tabindex="-1">6. Piloto Automático <span aria-hidden="true">🔒</span></button>
+      </div>
+      <span id="tab-counter" class="tab-progress-badge" aria-hidden="true">01 / 06</span>
+    </div>
+
+    <!-- Painel 1: Brandboard & Identidade Visual -->
+    <div role="tabpanel" aria-labelledby="tab-visual" tabindex="0">
+      <div class="panel-inner">
+        <section class="section-card">
+          <h2>Logotipo Oficial &amp; Selo da Marca</h2>
+          <p>Aplicação principal horizontal e selo circular da marca organizada para uso consistente em adesivos de lacre, cartões de pós-venda, redes sociais e materiais comerciais.</p>
+          <div class="logo-showcase-grid">
+            <div class="logo-board-box">
+              <div class="logo-preview-stage">
+                <img src="./assets/logo-aura-granola.svg" alt="Logotipo horizontal Aura Granola">
+              </div>
+              <span class="mono-stamp">Assinatura Principal • Horizontal</span>
+            </div>
+            <div class="logo-board-box">
+              <div class="logo-preview-stage">
+                <img src="./assets/selo-aura-granola.svg" alt="Selo circular Aura Granola Pequenos Lotes">
+              </div>
+              <span class="mono-stamp">Selo Circular • Lacre &amp; Avatar</span>
+            </div>
+          </div>
+
+          <h2>Paleta Oficial da Marca (5 Cores • Clique para copiar)</h2>
+          <p>Centraliza códigos para redes sociais (HEX/RGB) e para impressos de pós-venda e catálogo (CMYK), mantendo os 2 sabores com a mesma assinatura visual.</p>
+          <div class="card-grid">
+            <article class="swatch-card">
+              <span class="swatch-color" style="background-color: #9C4A2D;" aria-hidden="true"></span>
+              <h3>Terracota Cacau (Primária)</h3>
+              <div class="swatch-meta">
+                <div class="copy-row">
+                  <code id="hex-1">#9C4A2D</code>
+                  <span class="copy">
+                    <button type="button" class="copy-button" command="--copy" commandfor="hex-1" aria-label="Copiar código HEX Terracota Cacau">Copiar</button>
+                    <span class="tip" role="status"></span>
+                  </span>
+                </div>
+                <span>RGB: 156, 74, 45</span>
+                <span>CMYK: 25, 76, 84, 20</span>
+              </div>
+            </article>
+
+            <article class="swatch-card">
+              <span class="swatch-color" style="background-color: #F7F1E5;" aria-hidden="true"></span>
+              <h3>Aveia Quente (Fundo Editorial)</h3>
+              <div class="swatch-meta">
+                <div class="copy-row">
+                  <code id="hex-2">#F7F1E5</code>
+                  <span class="copy">
+                    <button type="button" class="copy-button" command="--copy" commandfor="hex-2" aria-label="Copiar código HEX Aveia Quente">Copiar</button>
+                    <span class="tip" role="status"></span>
+                  </span>
+                </div>
+                <span>RGB: 247, 241, 229</span>
+                <span>CMYK: 3, 4, 10, 0</span>
+              </div>
+            </article>
+
+            <article class="swatch-card">
+              <span class="swatch-color" style="background-color: #3F5E45;" aria-hidden="true"></span>
+              <h3>Verde Folha Seca (Acento)</h3>
+              <div class="swatch-meta">
+                <div class="copy-row">
+                  <code id="hex-3">#3F5E45</code>
+                  <span class="copy">
+                    <button type="button" class="copy-button" command="--copy" commandfor="hex-3" aria-label="Copiar código HEX Verde Folha Seca">Copiar</button>
+                    <span class="tip" role="status"></span>
+                  </span>
+                </div>
+                <span>RGB: 63, 94, 69</span>
+                <span>CMYK: 74, 40, 74, 30</span>
+              </div>
+            </article>
+
+            <article class="swatch-card">
+              <span class="swatch-color" style="background-color: #2B211B;" aria-hidden="true"></span>
+              <h3>Café Torrado (Texto)</h3>
+              <div class="swatch-meta">
+                <div class="copy-row">
+                  <code id="hex-4">#2B211B</code>
+                  <span class="copy">
+                    <button type="button" class="copy-button" command="--copy" commandfor="hex-4" aria-label="Copiar código HEX Café Torrado">Copiar</button>
+                    <span class="tip" role="status"></span>
+                  </span>
+                </div>
+                <span>RGB: 43, 33, 27</span>
+                <span>CMYK: 60, 68, 74, 75</span>
+              </div>
+            </article>
+
+            <article class="swatch-card">
+              <span class="swatch-color" style="background-color: #D99B26;" aria-hidden="true"></span>
+              <h3>Mel Dourado (Destaque)</h3>
+              <div class="swatch-meta">
+                <div class="copy-row">
+                  <code id="hex-5">#D99B26</code>
+                  <span class="copy">
+                    <button type="button" class="copy-button" command="--copy" commandfor="hex-5" aria-label="Copiar código HEX Mel Dourado">Copiar</button>
+                    <span class="tip" role="status"></span>
+                  </span>
+                </div>
+                <span>RGB: 217, 155, 38</span>
+                <span>CMYK: 13, 42, 95, 1</span>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section class="section-card">
+          <h2>Tipografia, Direção de Arte &amp; Padrão Visual</h2>
+          <div class="card-grid">
+            <article class="swatch-card">
+              <span class="specimen-aa" aria-hidden="true">Aa</span>
+              <h3>Títulos: Serifada Editorial</h3>
+              <div class="specimen-serif">Crocância de forno lento, sem pressa.</div>
+              <p style="margin:0; font-size:0.88rem;"><em>Fraunces / Playfair Display (Bold)</em> — uso exclusivo em nomes de marca, sabores e chamadas curtas. Nunca usar em lista de ingredientes.</p>
+            </article>
+            <article class="swatch-card">
+              <span class="specimen-aa" style="font-family: var(--font-sans); color: var(--brand-accent);" aria-hidden="true">Aa</span>
+              <h3>Corpo e Avisos: Sans-Serif Limpa</h3>
+              <div class="specimen-sans"><strong>ALÉRGICOS:</strong> CONTÉM AVEIA E CASTANHA-DO-PARÁ. PODE CONTER TRIGO. CONTÉM GLÚTEN.</div>
+              <p style="margin:0; font-size:0.88rem;"><em>Plus Jakarta Sans / Inter</em> — leitura nítida na tela do celular, nas fichas técnicas e nos avisos obrigatórios de alergênicos.</p>
+            </article>
+            <article class="swatch-card">
+              <span class="mono-stamp" style="inline-size: fit-content;">Estúdio &amp; Fotos Reais</span>
+              <h3>Fotografia &amp; Acervo Recortado</h3>
+              <p style="margin:0; font-size:0.88rem;"><strong>Luz:</strong> natural lateral de manhã, cerâmica fosca, linho cru e 25–35% de área limpa para títulos.</p>
+              <p style="margin:0; font-size:0.88rem;"><strong>Acervo:</strong> fotos reais dos 2 sabores tratadas e recortadas no Portal para aplicar direto nos modelos do Canva.</p>
+            </article>
+          </div>
+        </section>
+      </div>
+    </div>
+
+    <!-- Painel 2: Produtos & Fichas Técnicas -->
+    <div role="tabpanel" aria-labelledby="tab-items" hidden>
+      <div class="panel-inner">
+        <section class="section-card">
+          <h2>Fonte Única da Verdade — Produtos &amp; Sabores</h2>
+          <p>Todos os dados oficiais de ingredientes, alergênicos e limites de comunicação aprovados para a linha regular da marca.</p>
+
+          <div class="card-grid-2">
+            <article class="item-popout-card">
+              <div class="item-popout-head">
+                <div class="item-popout-img-wrap">
+                  <img src="../assets/cutouts/aura_sku01_pouch.png" alt="Embalagem kraft Aura Granola Mel e Castanha-do-Pará 250g">
+                </div>
+                <div>
+                  <span class="item-tag">Produto 01 • 250g / 500g</span>
+                  <h3 style="margin: 0.45rem 0 0; font-size: 1.35rem;">Granola Tradicional Mel &amp; Castanha-do-Pará</h3>
+                </div>
+              </div>
+              <p><strong>Ingredientes:</strong> Aveia em flocos, mel silvestre, castanha-do-pará, semente de abóbora, óleo de coco, canela em pó e sal marinho.</p>
+              <p><strong>Lupa Frontal (Simulação):</strong> Não exige lupa "ALTO EM" neste exemplo fictício (sempre confirmar cálculo nutricional com profissional habilitado).</p>
+              <div class="allergen-box">
+                ALÉRGICOS: CONTÉM AVEIA E CASTANHA-DO-PARÁ. PODE CONTER TRIGO, CENTEIO, CEVADA, AMENDOIM E OUTRAS CASTANHAS. CONTÉM GLÚTEN.
+              </div>
+            </article>
+
+            <article class="item-popout-card">
+              <div class="item-popout-head">
+                <div class="item-popout-img-wrap">
+                  <img src="../assets/cutouts/aura_sku02_pouch.png" alt="Embalagem kraft Aura Granola Cacau 70% e Coco Crocante 250g">
+                </div>
+                <div>
+                  <span class="item-tag" style="background-color: var(--brand-accent);">Produto 02 • 250g / 500g</span>
+                  <h3 style="margin: 0.45rem 0 0; font-size: 1.35rem;">Granola Cacau 70% &amp; Coco Crocante</h3>
+                </div>
+              </div>
+              <p><strong>Ingredientes:</strong> Aveia sem glúten certificada, lascas de coco desidratado, nibs de cacau, cacau em pó alcalino, pasta de tâmaras, óleo de coco, semente de girassol e sal marinho.</p>
+              <div class="allergen-box">
+                ALÉRGICOS: CONTÉM AVEIA. PODE CONTER CASTANHA-DE-CAJU, CASTANHA-DO-PARÁ E AMÊNDOA. NÃO CONTÉM GLÚTEN. (Condicionado a laudo oficial no exemplo).
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <!-- Relatório de Triagem Preventiva -->
+        <section class="section-card">
+          <div class="toolbar-between">
+            <div>
+              <span class="mono-stamp" style="inline-size: fit-content; margin-bottom: 0.4rem;">Conformidade &amp; Proteção de Marca</span>
+              <h2>Relatório de Triagem Preventiva de Rotulagem &amp; Conteúdo Seguro</h2>
+              <p>Auditoria preventiva alinhada às resoluções da Anvisa (RDC 727/2022 de Rotulagem e Alergênicos, IN 75/2020) e boas práticas do Conar. Protege o negócio contra denúncias, multas e retenção de lotes.</p>
+            </div>
+            <span class="mono-pill green" style="align-self: flex-start;">Status: Aprovado para Divulgação</span>
+          </div>
+
+          <div class="card-grid">
+            <article class="swatch-card" style="border-left: 4px solid var(--accent-herb, #3F5E45);">
+              <span class="mono-stamp">Check 01 • Alergênicos RDC 727</span>
+              <h3>Avisos Obrigatórios</h3>
+              <p style="margin: 0; font-size: 0.88rem;"><strong>Status: 100% Conforme.</strong> Caixa alta, negrito e quebra de linha padronizados tanto no verso da embalagem quanto nas legendas e catálogos comerciais.</p>
+            </article>
+
+            <article class="swatch-card" style="border-left: 4px solid var(--accent-citrus, #D99B26);">
+              <span class="mono-stamp">Check 02 • Termos Proibidos</span>
+              <h3>Alegações Médicas &amp; "Cura"</h3>
+              <p style="margin: 0; font-size: 0.88rem;"><strong>Status: Blindado.</strong> Bloqueadas todas as menções a 'emagrecedor', 'anti-inflamatório', 'detox' ou 'cura'. Foco total em sensorial, aroma e crocância.</p>
+            </article>
+
+            <article class="swatch-card" style="border-left: 4px solid var(--brand-primary, #9C4A2D);">
+              <span class="mono-stamp">Check 03 • Lupa Frontal (IN 75)</span>
+              <h3>Açúcares &amp; Gorduras</h3>
+              <p style="margin: 0; font-size: 0.88rem;"><strong>Status: Triagem Concluída.</strong> Não há alegação indevida de 'zero açúcar' para a versão com mel. Tabela nutricional oficial conferida com responsável técnico.</p>
+            </article>
+          </div>
+        </section>
+      </div>
+    </div>
+
+    <!-- Painel 3: Cérebro de IA & Textos -->
+    <div role="tabpanel" aria-labelledby="tab-ai" hidden>
+      <div class="panel-inner">
+        <section class="section-card">
+          <div class="toolbar-between">
+            <div>
+              <span class="mono-pill citrus" style="margin-bottom: 0.4rem;">Colaborador Digital Oficial</span>
+              <h2>AuraBot — Redator Sênior Oficial da Aura Granola</h2>
+              <p>Seu assistente exclusivo treinado com as receitas, história e regras da marca. Escreve pautas, legendas e respostas de direct em 10 segundos, respeitando os limites da Anvisa.</p>
+            </div>
+            <span class="copy">
+              <button type="button" class="copy-button primary-btn" command="--copy" commandfor="ai-context-block" aria-label="Copiar manual da marca para IA">Copiar Instruções do AuraBot</button>
+              <span class="tip" role="status"></span>
+            </span>
+          </div>
+          <div style="background: rgba(217, 155, 38, 0.08); border: 1px solid rgba(217, 155, 38, 0.25); border-radius: 12px; padding: 1rem 1.25rem; margin-bottom: 1rem;">
+            <p style="margin: 0; font-size: 0.9rem; color: var(--color-ink);"><strong>Como funciona na rotina:</strong> Abra o aplicativo do Gemini (Gem) ou ChatGPT no celular, digite um pedido rápido (ex.: <em>"Crie uma legenda de café da manhã para domingo com a granola de cacau"</em>) e o AuraBot entrega o texto finalizado com hashtags adequadas e o aviso de alérgicos sem nenhum esforço.</p>
+          </div>
+          <pre id="ai-context-block" class="code-box"># INSTRUÇÕES DO AURABOT — REDATOR OFICIAL AURA GRANOLA
+
+1. PAPEL E MISSÃO
+Você é o AuraBot, o redator sênior exclusivo da Aura Granola.
+Sua missão é criar conteúdos irresistíveis para redes sociais, WhatsApp e e-commerce que despertem o desejo pelo café da manhã caseiro e acolhedor, sempre protegendo a marca de promessas regulatórias proibidas.
+- Categoria: Granolas e snacks crocantes artesanais em pouch kraft com visor transparente.
+- Propósito: Café da manhã de verdade com ingredientes da despensa, sem exageros nem discurso milagroso.
+- Público: 25 a 45 anos, clientes de empórios naturais, mercados de bairro e compra online.
+
+2. JEITO DE CONVERSAR
+- Tom de voz: Acolhedor, saboroso, próximo e transparente.
+- Regras de Ouro:
+  1) Fale primeiro do aroma, da crocância e da rotina real de quem come.
+  2) Nunca transforme alimento comum em remédio ou "detox".
+  3) Frases diretas e gostosas de ler, em linguagem simples.
+- Palavras que combinam: assada lentamente, crocante, pequenos lotes, castanhas inteiras, receita transparente, sem pressa.
+- Palavras proibidas: emagrecedor, anti-inflamatório, cura, previne doenças, desintoxica, milagroso, zero risco.
+
+3. PRODUTOS OFICIAIS (FONTE DA VERDADE)
+- Produto 01 — Granola Tradicional Mel &amp; Castanha-do-Pará (250g / 500g)
+  Ingredientes: Aveia em flocos, mel silvestre, castanha-do-pará, semente de abóbora, óleo de coco, canela em pó e sal marinho.
+  Alergênicos: ALÉRGICOS: CONTÉM AVEIA E CASTANHA-DO-PARÁ. PODE CONTER TRIGO, CENTEIO, CEVADA, AMENDOIM E OUTRAS CASTANHAS. CONTÉM GLÚTEN.
+  Restrição: NUNCA usar "sem açúcar" ou "sem glúten".
+
+- Produto 02 — Granola Cacau 70% &amp; Coco Crocante (250g / 500g)
+  Ingredientes: Aveia sem glúten certificada, lascas de coco desidratado, nibs de cacau, cacau em pó alcalino, pasta de tâmaras, óleo de coco, semente de girassol e sal marinho.
+  Alergênicos: ALÉRGICOS: CONTÉM AVEIA. PODE CONTER CASTANHA-DE-CAJU, CASTANHA-DO-PARÁ E AMÊNDOA. NÃO CONTÉM GLÚTEN (com laudo).
+  Restrição: "Sem adição de açúcares" e "Fonte de fibras" só com tabela nutricional comprovada.</pre>
+        </section>
+
+        <section class="section-card">
+          <h2>Exemplos de Pedidos Prontos &amp; Legendas que Vendem</h2>
+          <div class="card-grid-2">
+            <article class="item-card">
+              <h3>Pedido 1 — Legenda de Desejo para Instagram</h3>
+              <pre id="prompt-1" class="code-box" style="margin: 0;">Escreva 3 legendas curtas e envolventes para a Granola Mel &amp; Castanha-do-Pará servida com iogurte e banana. Foque no contraste do iogurte frio com a crocância da aveia tostada no forno e feche lembrando os alergênicos obrigatórios sem cortar o clima acolhedor.</pre>
+              <div class="prompt-actions">
+                <span class="copy">
+                  <button type="button" class="copy-button" command="--copy" commandfor="prompt-1">Copiar</button>
+                  <span class="tip" role="status"></span>
+                </span>
+              </div>
+            </article>
+
+            <article class="item-card">
+              <h3>Pedido 2 — Descrição Irresistível para Loja Online</h3>
+              <pre id="prompt-2" class="code-box" style="margin: 0;">Crie a descrição da loja online para a Granola Cacau 70% &amp; Coco Crocante: (1) abertura sensorial de 2 linhas sobre cacau intenso e lascas de coco tostadas, (2) 3 jeitos práticos de comer no dia a dia, (3) lista fiel de ingredientes e alergênicos sem promessas médicas.</pre>
+              <div class="prompt-actions">
+                <span class="copy">
+                  <button type="button" class="copy-button" command="--copy" commandfor="prompt-2">Copiar</button>
+                  <span class="tip" role="status"></span>
+                </span>
+              </div>
+            </article>
+          </div>
+        </section>
+      </div>
+    </div>
+
+    <!-- Painel 4: Kit Canva & Arquivos (Sem repetições, sem Apresentação 5 slides) -->
+    <div role="tabpanel" aria-labelledby="tab-canva" hidden>
+      <div class="panel-inner">
+        <section class="section-card">
+          <div class="toolbar-between">
+            <div>
+              <h2>Kit Canva Editável — Aura Granola</h2>
+              <p style="margin-block-end: 0;">Todos os arquivos editáveis da marca organizados na pasta oficial do projeto: grade do feed, stories/status, vídeo Reels e cardápio comercial.</p>
+            </div>
+            <div class="mockup-actions">
+              <a class="canva-link-btn outline" href="https://www.canva.com/folder/FAHbLTJXUiI" target="_blank" rel="noopener noreferrer">Abrir Pasta no Canva</a>
+            </div>
+          </div>
+
+          <div class="canva-kit-grid">
+            <!-- 1. Feed 3x3 Unificado 1:1 -->
+            <article class="mockup-card">
+              <div class="preview-frame is-square-mosaic">
+                <div class="mini-mosaic-inside" aria-label="Miniatura dos 9 posts quadrados 1:1 do Feed 3x3">
+                  <img src="./canva-previews/feed_01.png" alt="Post 1 (1:1) Mel e Castanha">
+                  <img src="./canva-previews/feed_02.png" alt="Post 2 (1:1) Café da manhã">
+                  <img src="./canva-previews/feed_03.png" alt="Post 3 (1:1) Anatomia dos grãos">
+                  <img src="./canva-previews/feed_04.png" alt="Post 4 (1:1) Manifesto terracota">
+                  <img src="./canva-previews/feed_05.png" alt="Post 5 (1:1) Raio-X na mesa">
+                  <img src="./canva-previews/feed_06.png" alt="Post 6 (1:1) Cacau 70% e Coco">
+                  <img src="./canva-previews/feed_07.png" alt="Post 7 (1:1) Guia de alérgicos">
+                  <img src="./canva-previews/feed_08.png" alt="Post 8 (1:1) Ritual Cacau e frutas">
+                  <img src="./canva-previews/feed_09.png" alt="Post 9 (1:1) Prova social e duo">
+                </div>
+              </div>
+              <h3>Feed 3×3 Completo (9 Posts 1:1)</h3>
+              <p>Arquivo único quadrado 1:1 (1080×1080) no Canva reunindo todos os 9 posts da grade editorial prontos para adaptar fotos, frases ou lotes.</p>
+              <div class="mockup-actions">
+                <a class="canva-link-btn" href="https://www.canva.com/d/5vtfu0LJcP5dK6V" target="_blank" rel="noopener noreferrer">Editar no Canva</a>
+              </div>
+            </article>
+
+            <!-- 2. Stories & WhatsApp Status -->
+            <article class="mockup-card">
+              <div class="preview-frame">
+                <div class="stories-pair-inside">
+                  <img src="./canva-previews/story_01.png" alt="Story 01 Aura Granola Mel e Castanha">
+                  <img src="./canva-previews/story_02.png" alt="Story 02 Aura Granola Cacau 70% e Coco">
+                </div>
+              </div>
+              <h3>Stories &amp; WhatsApp Status (9:16)</h3>
+              <p>2 modelos verticais editoriais para divulgar café da manhã, lotes da semana e pedidos diretos pelo WhatsApp.</p>
+              <div class="mockup-actions">
+                <a class="canva-link-btn" href="https://www.canva.com/d/TNctiMyzN1-Ga6-" target="_blank" rel="noopener noreferrer">Editar no Canva</a>
+              </div>
+            </article>
+
+            <!-- 3. Vídeo Reels Curto -->
+            <article class="mockup-card">
+              <div class="preview-frame is-contain">
+                <video controls playsinline muted loop preload="metadata" poster="./canva-previews/reel_frame_01.png">
+                  <source src="./canva-previews/reels_aura_granola.mp4" type="video/mp4">
+                </video>
+              </div>
+              <h3>Vídeo / Reels Curto (9:16)</h3>
+              <p>Vídeo de 3 cenas destacando a crocância matinal, as castanhas inteiras e a linha completa de embalagens kraft.</p>
+              <div class="mockup-actions">
+                <a class="canva-link-btn" href="https://www.canva.com/d/xHZmg3SrCsfkjS-" target="_blank" rel="noopener noreferrer">Editar no Canva</a>
+              </div>
+            </article>
+
+            <!-- 4. Cardápio Editável -->
+            <article class="mockup-card">
+              <div class="preview-frame is-contain">
+                <img src="./canva-previews/cardapio_aura.png" alt="Catálogo e Tabela Comercial editorial Aura Granola editável no Canva" style="object-fit: contain; border-radius: 10px;">
+              </div>
+              <h3>Catálogo &amp; Tabela Comercial</h3>
+              <p>Layout editorial atualizado para editar pesos (250g/500g), preços, ingredientes e condições para empórios em segundos.</p>
+              <div class="mockup-actions">
+                <a class="canva-link-btn" href="https://www.canva.com/d/Q_qQvM3fNI3WMGV" target="_blank" rel="noopener noreferrer">Editar no Canva</a>
+              </div>
+            </article>
+
+            <!-- 5. Lâmina Comercial B2B para Empórios (Sell Sheet) -->
+            <article class="mockup-card" style="border: 1px solid var(--accent-citrus, #D99B26);">
+              <div class="preview-frame is-contain" style="background: #FAF7F2; padding: 0.75rem;">
+                <img src="./canva-previews/ficha_lojistas_aura.png" alt="Prévia da Ficha de Apresentação para Lojistas e Empórios — Aura Granola no Canva" style="width: 100%; height: 100%; object-fit: contain; border-radius: 6px; box-shadow: 0 4px 12px rgba(0,0,0,0.08);" loading="lazy">
+              </div>
+              <div style="display: flex; align-items: center; justify-content: space-between; margin-top: 0.4rem;">
+                <span class="mono-pill citrus" style="font-size: 0.65rem;">Ativo de Vendas B2B</span>
+              </div>
+              <h3>Ficha de Apresentação para Lojistas e Empórios</h3>
+              <p>Lâmina executiva em PDF/Canva para apresentar aos compradores de empórios e cafeterias, com diferenciais de prateleira, os 2 sabores do pacote e pedido mínimo editável sem preços fixos.</p>
+              <div class="mockup-actions">
+                <a class="canva-link-btn" href="https://www.canva.com/d/ZEDV3SV6JC7H_Ye" target="_blank" rel="noopener noreferrer">Acessar no Canva</a>
+              </div>
+            </article>
+
+            <!-- 6. Kit Físico de Pós-Venda -->
+            <article class="mockup-card" style="border: 1px solid var(--accent-herb, #3F5E45);">
+              <div class="preview-frame is-contain" style="background: #FAF7F2; padding: 0.75rem;">
+                <img src="./canva-previews/kit_pos_venda_aura.png" alt="Prévia do Kit Físico do Pós-Venda — Aura Granola no Canva" style="width: 100%; height: 100%; object-fit: contain; border-radius: 6px; box-shadow: 0 4px 12px rgba(0,0,0,0.08);" loading="lazy">
+              </div>
+              <div style="display: flex; align-items: center; justify-content: space-between; margin-top: 0.4rem;">
+                <span class="mono-pill green" style="font-size: 0.65rem;">Experiência Física &amp; Recompra</span>
+              </div>
+              <h3>Kit Físico de Pós-Venda</h3>
+              <p>Cartão de agradecimento + ritual de consumo ("Como aproveitar sua granola"), selo de lote artesanal e espaço de convite para recompra com QR Code.</p>
+              <div class="mockup-actions">
+                <a class="canva-link-btn" href="https://www.canva.com/d/JI7aIuneKhsqNXg" target="_blank" rel="noopener noreferrer">Acessar no Canva</a>
+              </div>
+            </article>
+          </div>
+        </section>
+      </div>
+    </div>
+
+    <!-- Painel 5: Filtro de Segurança (Bloqueada 🔒 — Nível Pacote 2) -->
+    <div role="tabpanel" aria-labelledby="tab-compliance" hidden>
+      <div class="locked-stage">
+        <div class="locked-teaser-bg" aria-hidden="true">
+          <div class="locked-ghost-card">
+            <strong>SEMÁFORO VERDE</strong>
+            <p>Descrição sensorial liberada com aviso de alergênicos.</p>
+          </div>
+          <div class="locked-ghost-card">
+            <strong>SEMÁFORO AMARELO</strong>
+            <p>Alerta de alegação nutricional regulada (IN 75/2020).</p>
+          </div>
+          <div class="locked-ghost-card">
+            <strong>SEMÁFORO VERMELHO</strong>
+            <p>Bloqueio preventivo de promessa terapêutica e revisão.</p>
+          </div>
+        </div>
+
+        <div class="locked-overlay-card">
+          <div class="lock-icon-circle" aria-hidden="true">🔒</div>
+          <span class="mono-pill gold">Recurso do Pacote Completo + IA</span>
+          <h2>Filtro Semáforo Interativo<br><em>bloqueado neste plano</em></h2>
+          <p>O <strong>Filtro de Segurança Automático (Verde / Amarelo / Vermelho)</strong> e o Assistente de IA exclusivo treinado fazem parte do <strong>Pacote Completo + IA</strong> — ideal para marcas com linha expandida ou maior complexidade regulatória (MAPA e Anvisa).</p>
+          <p style="font-size: 0.86rem;">Neste portal essencial, sua marca já conta com o <strong>Manual de Voz &amp; Regras Anti-Erros</strong> completo pronto para colar no Gemini ou ChatGPT (na <strong>Aba 3</strong>).</p>
+          <div class="locked-benefits">
+            <span>Assistente Gem / GPT Exclusivo</span>
+            <span>Semáforo Automático antes de postar</span>
+            <span>Até 5 produtos cadastrados</span>
+          </div>
+          <a class="canva-link-btn" href="../index.html#pacotes">Conhecer Pacote Completo + IA →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Painel 6: Estúdio no Piloto Automático (Bloqueada 🔒 — Nível Assinatura Mensal) -->
+    <div role="tabpanel" aria-labelledby="tab-autopilot" hidden>
+      <div class="locked-stage">
+        <div class="locked-teaser-bg" aria-hidden="true">
+          <div class="locked-ghost-card">
+            <strong>CAMPANHA DO MÊS</strong>
+            <p>Pautas sazonais + 9 artes novas diagramadas.</p>
+          </div>
+          <div class="locked-ghost-card">
+            <strong>CALENDÁRIO ATIVO</strong>
+            <p>Semana 1 a Semana 4 prontas para agendar no feed.</p>
+          </div>
+          <div class="locked-ghost-card">
+            <strong>ATUALIZAÇÃO CONTÍNUA</strong>
+            <p>Novos sabores no cardápio com 1 áudio no WhatsApp.</p>
+          </div>
+        </div>
+
+        <div class="locked-overlay-card">
+          <div class="lock-icon-circle" aria-hidden="true">🔒</div>
+          <span class="mono-pill gold">Recurso da Assinatura Mensal</span>
+          <h2>Piloto Automático<br><em>bloqueado neste plano</em></h2>
+          <p>O módulo de <strong>Continuidade Mensal (Piloto Automático)</strong> entrega mensalmente novos feeds, vídeos Reels, atualização de preços no cardápio e calendário pronto para agendar — bastando enviar fotos ou um áudio rápido pelo WhatsApp.</p>
+          <div class="locked-benefits">
+            <span>1 Feed Novo por Mês (9 Posts)</span>
+            <span>2 Vídeos / Reels Mensais</span>
+            <span>Calendário &amp; Cardápio Atualizados</span>
+          </div>
+          <a class="canva-link-btn" href="../index.html#pacotes">Conhecer Piloto Automático →</a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer container">
+    Aura Granola — Central da Marca &amp; Acervo Oficial • Produzido por Lurno Studio.
+  </footer>
+
+  <script>
+    /* ============================================================
+       1. INTERAÇÃO SUAVE DO DUO DE EMBALAGENS NO HEADER
+       ============================================================ */
+    const duoFlavorBtns = document.querySelectorAll('.duo-flavor-btn');
+    const pouchCards = [
+      document.getElementById('pouch-card-0'),
+      document.getElementById('pouch-card-1')
+    ];
+    const duoDesc = document.getElementById('duo-desc');
+    const duoSafetyNote = document.getElementById('duo-safety-note');
+
+    const duoDetails = [
+      {
+        desc: 'Assadas lentamente em forno baixo em pequenos lotes para manter grãos e castanhas inteiras crocantes — com visor frontal transparente para o cliente ver o produto real antes de abrir.',
+        note: 'SABOR 01 (MEL & CASTANHA): ALÉRGICOS — Contém aveia e castanha-do-pará. Contém glúten. Proibido afirmar "sem açúcar".'
+      },
+      {
+        desc: 'Lascas largas de coco tostadas, nibs de cacau e pasta de tâmaras sobre aveia certificada — visual em cacau torrado e embalagem kraft com janela frontal transparente.',
+        note: 'SABOR 02 (CACAU 70%): Adoçada apenas com pasta de tâmaras. ALÉRGICOS — Contém aveia. Não contém glúten (condicionado a laudo).'
+      }
+    ];
+
+    function highlightSku(idx) {
+      duoFlavorBtns.forEach((btn) => {
+        btn.setAttribute('aria-pressed', String(Number(btn.dataset.sku) === idx));
+      });
+      pouchCards.forEach((card, i) => {
+        if (i === idx) {
+          card.classList.add('is-active');
+          card.classList.remove('is-dimmed');
+        } else {
+          card.classList.remove('is-active');
+          card.classList.add('is-dimmed');
+        }
+      });
+      duoDesc.textContent = duoDetails[idx].desc;
+      duoSafetyNote.textContent = duoDetails[idx].note;
+    }
+
+    duoFlavorBtns.forEach((btn) => {
+      btn.addEventListener('click', () => highlightSku(Number(btn.dataset.sku)));
+    });
+    pouchCards.forEach((card, i) => {
+      card.addEventListener('click', () => highlightSku(i));
+      card.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          highlightSku(i);
+        }
+      });
+    });
+
+    /* ============================================================
+       2. CÓPIA RÁPIDA & NAVEGAÇÃO DAS 6 ABAS (01 / 06)
+       ============================================================ */
+    let lastMessage = '';
+    const timers = new WeakMap();
+
+    function legacyCopy(text) {
+      const field = Object.assign(document.createElement('textarea'), { value: text });
+      field.setAttribute('readonly', '');
+      field.style.cssText = 'position:fixed;inset-block-start:0;opacity:0';
+      document.body.append(field);
+      field.select();
+      try { return document.execCommand('copy'); } finally { field.remove(); }
+    }
+
+    function reportCopy(button, ok) {
+      const tip = button.nextElementSibling;
+      clearTimeout(timers.get(button));
+      button.removeAttribute('data-copied');
+      button.removeAttribute('data-failed');
+      let message = ok ? 'Copiado!' : 'Falha ao copiar';
+      if (message === lastMessage) message += '\u00A0';
+      lastMessage = message;
+      tip.textContent = '';
+      void button.offsetWidth;
+      button.setAttribute(ok ? 'data-copied' : 'data-failed', '');
+      requestAnimationFrame(() => { tip.textContent = message; });
+      timers.set(button, setTimeout(() => {
+        button.removeAttribute('data-copied');
+        button.removeAttribute('data-failed');
+        tip.textContent = '';
+      }, 2000));
+    }
+
+    async function copyFromTarget(button, target) {
+      if (!target) return;
+      const text = target.matches('input, textarea') ? target.value : target.innerText.trim();
+      if (!text) return;
+      try {
+        if (!navigator.clipboard) throw new Error('No clipboard');
+        await navigator.clipboard.writeText(text);
+        reportCopy(button, true);
+      } catch {
+        reportCopy(button, legacyCopy(text));
+      }
+    }
+
+    if ('CommandEvent' in window) {
+      document.addEventListener('command', (event) => {
+        if (event.command === '--copy') copyFromTarget(event.source, event.target);
+      }, true);
+    } else {
+      document.addEventListener('click', (event) => {
+        const button = event.target.closest('button[command="--copy"]');
+        if (!button) return;
+        copyFromTarget(button, document.getElementById(button.getAttribute('commandfor')));
+      });
+    }
+
+    const tablist = document.querySelector('[role="tablist"]');
+    const tabs = Array.from(tablist.querySelectorAll('[role="tab"]'));
+    const panels = Array.from(document.querySelectorAll('[role="tabpanel"]'));
+    const tabCounter = document.getElementById('tab-counter');
+
+    function selectTab(targetTab, moveFocus = false) {
+      tabs.forEach((tab, index) => {
+        const isSelected = tab === targetTab;
+        tab.setAttribute('aria-selected', String(isSelected));
+        tab.tabIndex = isSelected ? 0 : -1;
+        const panel = panels[index];
+        if (isSelected) {
+          panel.removeAttribute('hidden');
+          panel.tabIndex = 0;
+          tabCounter.textContent = `0${index + 1} / 0${tabs.length}`;
+        } else {
+          panel.setAttribute('hidden', '');
+          panel.removeAttribute('tabindex');
+        }
+      });
+      if (moveFocus) {
+        targetTab.focus();
+        targetTab.scrollIntoView({ block: 'nearest', inline: 'nearest' });
+      }
+    }
+
+    tabs.forEach((tab) => {
+      tab.addEventListener('click', () => selectTab(tab, false));
+      tab.addEventListener('keydown', (event) => {
+        const current = tabs.indexOf(tab);
+        let next = current;
+        if (event.key === 'ArrowRight') next = (current + 1) % tabs.length;
+        else if (event.key === 'ArrowLeft') next = (current - 1 + tabs.length) % tabs.length;
+        else if (event.key === 'Home') next = 0;
+        else if (event.key === 'End') next = tabs.length - 1;
+        else return;
+        event.preventDefault();
+        selectTab(tabs[next], true);
+      });
+    });
+
+    const initialTabParam = new URLSearchParams(window.location.search).get('tab') || window.location.hash.replace('#', '');
+    if (initialTabParam) {
+      const matched = document.getElementById(initialTabParam);
+      if (matched && matched.getAttribute('role') === 'tab') {
+        selectTab(matched, false);
+      }
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 264" width="420" height="264" role="img" aria-label="Logotipo Oficial Principal Brasa Nobre Burger">
+  <defs>
+    <style>
+      .bn-title { font-family: 'Oswald', 'Bahnschrift Condensed', 'Arial Narrow', sans-serif; font-weight: 700; letter-spacing: 0.08em; }
+      .bn-sub { font-family: 'JetBrains Mono', 'Consolas', monospace; font-weight: 700; letter-spacing: 0.24em; }
+    </style>
+  </defs>
+  <!-- Emblema Parrilla & Brasa -->
+  <g transform="translate(166, 12)">
+    <!-- Moldura octogonal de ferro forjado -->
+    <polygon points="18,2 70,2 86,18 86,78 70,94 18,94 2,78 2,18" fill="#1C1917" stroke="#D4A373" stroke-width="2"/>
+    <polygon points="21,8 67,8 80,21 80,75 67,88 21,88 8,75 8,21" fill="none" stroke="#3D322C" stroke-width="1.2"/>
+    <!-- Grelha Parrilla (barras verticais de fundo sutis) -->
+    <line x1="32" y1="62" x2="32" y2="79" stroke="#3D322C" stroke-width="2"/>
+    <line x1="44" y1="62" x2="44" y2="79" stroke="#3D322C" stroke-width="2"/>
+    <line x1="56" y1="62" x2="56" y2="79" stroke="#3D322C" stroke-width="2"/>
+    <!-- Chama arquitetônica estilizada em Laranja Brasa -->
+    <path d="M44 15 C44 15 61 32 61 47 C61 55.8 53.5 61.5 44 61.5 C34.5 61.5 27 55.8 27 47 C27 38.8 32.8 31.6 34.8 25.2 C36.8 29.4 39.2 30.8 39.2 30.8 C38.2 24.4 44 15 44 15 Z" fill="#E85D04"/>
+    <!-- Centelha geométrica central -->
+    <polygon points="44,34 50.5,47.5 44,55 37.5,47.5" fill="#F4EFEA"/>
+    <!-- Barras horizontais da grelha -->
+    <rect x="21" y="67" width="46" height="3" fill="#D4A373"/>
+    <rect x="27" y="74.5" width="34" height="2.4" fill="#D4A373" opacity="0.82"/>
+  </g>
+  <!-- Wordmark Principal -->
+  <text x="210" y="172" text-anchor="middle" fill="#F4EFEA" font-size="60" class="bn-title">BRASA NOBRE</text>
+  <!-- Divisória editorial com brasa -->
+  <line x1="46" y1="194" x2="178" y2="194" stroke="#3D322C" stroke-width="1.4"/>
+  <polygon points="196,194 201,189 206,194 201,199" fill="#E85D04"/>
+  <polygon points="210,194 214,190 218,194 214,198" fill="#D4A373"/>
+  <polygon points="222,194 227,189 232,194 227,199" fill="#E85D04"/>
+  <line x1="242" y1="194" x2="374" y2="194" stroke="#3D322C" stroke-width="1.4"/>
+  <!-- Subtítulo técnico -->
+  <text x="210" y="222" text-anchor="middle" fill="#D4A373" font-size="12.5" class="bn-sub">BURGER • PARRILLA &amp; DEFUMADOS</text>
+  <text x="210" y="244" text-anchor="middle" fill="#9A8D82" font-size="9.5" class="bn-sub">CARVÃO VEGETAL • BLEND 180G</text>
+</svg>
